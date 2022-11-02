@@ -1,0 +1,321 @@
+:root {
+        --primary-color: #302ae6;
+        --secondary-color: #536390;
+        --font-color: #424242;
+        --bg-color: white;
+        --cursor-color: white;
+        --cursor-upper: white;
+        --heading-color: #292922;
+        --bg-theme: #5352ed;
+        --header-color: #ffffff;
+        --breadcrumb: #fff;
+        --editor-bg: #fff;
+        --search-bg: #f3f3f3;
+        --search-color: lightgray;
+        --search-shadow: 2px 2px 4px #dbdbdb inset, -2px -2px 4px #dbdbdb inset;
+        --footer-shadow: inset 4px 4px 25px 10px rgba(201, 224, 245, 0.5), inset -4px -4px 25px 10px rgba(201, 224, 245, 0.5);
+        --bg-light: #e3f0fd;
+        --footer-font-head: #000;
+        --body-font-color: #333333;
+        --hover-mobile-dropdown:#ddd
+        --font-color-all: #000;
+        --bread-color: #333;
+        --cat-shadow: drop-shadow(4px 4px 6px #eeee);
+        --cat-hover-shadow: drop-shadow(4px 4px 8px lightgray);
+        --cat-card-border: 1px solid #eae8e8d4;
+        --form-focus: #495057;
+        --card-explore: #fff;
+        --question-title: #2C2C2C;
+        --card-explore-font: #666666;
+        --profile-img-border: lightgray;
+        --theme-color: #5352ed;
+        --question-detail-shadow: 2px 13px 25px 5px rgba(205, 205, 205, 0.3);
+        --hr: #e2e2e2;
+        --more-links: #5352ed;
+        --more-links-hover: #0d00d0;
+        --login-bg: #ffff;
+        --login-main-bg: #e3f0fd;
+        --btn-default-shadow: 2px 2px 6px #ececec, -2px -2px 6px #ececec inset;
+        --btn-default-color: #6a6a6af0;
+        --btn-default-active-shadow: 2px 2px 6px #ececec inset, -2px -2px 6px #ececec;
+        --search-dropdown: white;
+        --color-black: #333;
+        --border-light: lightgray;
+        --bg-white: white;
+        --navs-bg-white: #5353ed;
+        --select-border: #ffffff;
+        --a: #5352ed;
+        --bg-ask: #FCFCFC;
+        --text-black: black;
+        --input-bg: #f4f4f4;
+        --input-bg-light: #f4f4f4;
+        --input-bg-light-edit: #f4f4f4;
+        --file-upload-shadow: 2px 2px 6px #ececec, -2px -2px 6px #ececec inset, -2px -2px 13px #ececec;
+        --toolbar-head-bg: #f2f2f2;
+        --select: white;
+        --select-mobile: #f4f4f4;
+        --form-control: white;
+        --bg-uper: white;
+        --border-blog: #e4e4e4;
+        --file-upload-hover: 2px 2px 9px #ececec inset, -2px -2px 12px #ececec inset, 0px 0px 5px #eee !important;
+        --bg-home-second: url("../images/shahzad/home-second.png");
+        --bg-home-second-mobile: url("../images/shahzad/home-second-mobile.webp");
+        --bg-home-main: url("../images/shahzad/home-banner.png");
+        --bg-home-main-mobile: url("../images/shahzad/mobile-bg-theme.webp");
+        --test-active-bg: linear-gradient(180deg, #FFFFFF 0%, #D6D6D6 100%);
+        --landing-page-nav: #2e35dc;
+        --login-side-shadow:15px 13px 30px 0px #E3F0FD !important;
+        --btn-white: white;
+        --btn-white-text: #2e35dc;
+        --logo-white-landing-page: url('../images/shahzad/logo-white.svg');
+       --explore-icon-mine: url('../images/shahzad/explorelight.png');
+       --contact-us-img: url('../images/shahzad/contact-us-light.png');
+       --explore-icon-mine-other: url('../images/shahzad/exploredark.png');
+        --logo-white-other-page: url('../images/logo.svg');
+        --search-icon: url('../images/shahzad/search-button-light.svg');
+        --logo-white-landing-page-mobile: url('../images/shahzad/logo-theme-mobile.svg');
+        --logo-white-other-page-mobile: url('../images/shahzad/logo-theme-mobile.svg');
+        --logo-white-pgaes-page-mobile: url('../images/shahzad/logo-theme-mobile.svg');
+        --hammer: #fff;
+        --bg-side-bar: #2e35dd;
+        --bg-menu-mobile: #5253ed;
+        --ask-text: #333;
+        --blog-inner-content: #eee;
+        --bg-edit: #f3f3f3;
+        --tags-bg:  #e4e6e8;
+        --input-hover-active: box-shadow: 2px 2px 5px #e8e8e8 inset, -2px -2px 5px #e8e8e8 inset;
+        --bg-other-pages:#f2f2f2;
+        --border-profile-mobile: #2e35dd;
+        --border-profile-mobile-other: #2e35dd;
+        --theme-and-white-text: #5253ed;
+        --selec-color-dark: #fff;
+        --selec-color-dark-mobile: #f4f4f4;
+        --pagination-bg:#fff;
+        --select-avatar: #f4f4f4;
+        --home-blog-title:#000;
+        --box-shadow-button:4px 4px 10px 2px lightgray;
+        /* --main-search-shadow:4px 4px 4px #ebebeb inset, -4px -4px 4px #ebebeb inset; */
+
+    }
+
+    [data-theme="dark"] {
+      --box-shadow-button:0px 4px 28px rgb(0 0 0 / 10%);
+      --home-blog-title:#fff;
+      --contact-us-img: url('../images/shahzad/contact-us.png');
+      --border-profile-mobile-other: #add8e614;
+      --explore-icon-mine-other: url('../images/shahzad/exploredark.png');
+      /* --main-search-shadow:4px 4px 4px #000b44 inset, -4px -4px 4px #000b44 inset; */
+        --select-avatar: #001845;
+        --hover-mobile-dropdown: #172d55;
+        --pagination-bg:#002855;
+       --explore-icon-mine: url('../images/shahzad/exploredark.png');
+        --theme-and-white-text: #fff;
+        --border-profile-mobile: #001845;
+        --bg-other-pages:#001845;
+        --input-bg-light-edit: #001845;
+        --input-hover-active: box-shadow: 2px 2px 6px #00012fd1 inset, -2px -2px 6px #00012fd1 inset;
+        --input-bg-light: #002855;
+        --bg-edit: #001845;
+        --editor-bg: #002855;
+        --search-icon: url('../images/shahzad/search-button.svg');
+        --select-mobile: #002855;
+        --tags-bg:  #132950;
+        --blog-inner-content: #002855;
+        --ask-text: #fff;
+        --navs-bg-white: #fff;
+        --logo-white-other-page-mobile: url('../images/shahzad/logo-theme-mobile.svg');
+        --logo-white-other-page: url('../images/logo.svg');
+        --bg-menu-mobile: white;
+        --cursor-upper: #5253ed;
+        --cursor-color: #002855;
+        --bg-home-second-mobile: url("../images/shahzad/home-second-dark-mobile.png");
+        --bg-side-bar: #00143a;
+        --bg-home-main-mobile: url("../images/shahzad/mobile-bg-dark.png");
+        --logo-white-pgaes-page-mobile: url('../images/shahzad/logo-white-mobile.svg');
+        --logo-white-landing-page-mobile: url('../images/shahzad/logo-theme-mobile.svg');
+        --hammer: #5352ec;
+        --bg-theme: #5352ed;
+        --logo-white-landing-page: url('../images/logo.svg');
+        --btn-white-text: white;
+        --btn-white: #5352ec;
+        --login-side-shadow:15px 13px 30px 0px #002855 !important;
+        --landing-page-nav: transparent;
+        --bg-home-main: url("../images/shahzad/home-banner-dark.png");
+        --bg-home-second: url("../images/shahzad/home-second-dark.png");
+        --test-active-bg: linear-gradient(180deg, #5352ec 0%, #5352ec 100%);
+        --border-blog: #1a3e66;
+        --bg-uper: #001845;
+        --form-control: #001845;
+        --file-upload-hover: 2px 2px 9px #10101057 inset, -2px -2px 12px #232323a1 inset, 0px 0px 5px #38383830 !important;
+        --select: #001845;
+        --toolbar-head-bg: #001845;
+        --file-upload-shadow: 2px 2px 6px #2323235e, -2px -2px 6px #1b1b1b00 inset, -2px -2px 13px #1b1b1ba8;
+        --text-black: white;
+        --input-bg: #001845;
+        --bg-ask: #002855;
+        --a: #6d6cfb;
+        --bg-white: #002855;
+        --border-light: #1a3e66;
+        --color-black: #fff;
+        --search-dropdown: #001845;
+        --btn-default-active-shadow: 2px 2px 6px #1b1b1ba8 inset, -2px -2px 6px #25252573;
+        --btn-default-color: #d6d6d6f0;
+        --btn-default-shadow: 2px 2px 6px #0000003d, -2px -2px 6px #3c3b3b70 inset;
+        --login-main-bg: #001845;
+        --login-bg: #002855;
+        --primary-color: #9a97f3;
+        --secondary-color: #818cab;
+        --font-color: #e1e1ff;
+        --bg-color: #001845;
+        --heading-color: #818cab;
+        --header-color: #002855;
+        --breadcrumb: #001845;
+        --search-bg: #001845;
+        --search-color: #ECECEC;
+        --search-shadow:  2px 2px 4px #1d1c1cc2 inset, -2px -2px 4px #1d1c1cc2 inset;
+        --footer-shadow: inset -4px -4px 25px 10px rgba(255, 255, 255, 0.05);
+        --bg-light: #00143a;
+        --footer-font-head: #ECECEC;
+        --body-font-color: #ECECEC;
+        --font-color-all: #ECECEC;
+        --bread-color: #ECECEC;
+        --cat-shadow: drop-shadow(4px 4px 6px #001845);
+        --cat-hover-shadow: drop-shadow(4px 4px 8px #001845);
+        --cat-card-border: 1px solid #021a47;
+        --form-focus: #ECECEC;
+        --card-explore: #002855;
+        --question-title: #ECECEC;
+        --card-explore-font: #d2d2d2;
+        --profile-img-border: #001845;
+        --theme-color: #5352ed;
+        --question-detail-shadow: 2px 13px 25px 5px #001845;
+        --hr: #1a3e66;
+        --more-links: #ECECEC;
+        --more-links-hover: #5352ed;
+        --selec-color-dark: #002855;
+        --selec-color-dark-mobile: #002855;
+
+    }
+
+
+    .post-meta {
+        font-size: 1rem;
+        font-style: italic;
+        display: block;
+        margin-bottom: 4vh;
+        color: var(--secondary-color);
+    }
+
+    /*slider switch css */
+    .theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .theme-switch-wrapper em {
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+
+    .theme-switch {
+        display: inline-block;
+        height: 35px;
+        position: relative;
+        width: 67px;
+        top: 9px;
+        margin-left: -1px;
+    }
+
+    .theme-switch input {
+        display: none;
+    }
+
+    .slider {
+        background-image: url('../images/shahzad/switch-light.svg') !important;
+        bottom: 0;
+        background-size: cover;
+        object-fit: cover;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.4s;
+    }
+
+    .slider:before {
+        background-image: url('../images/shahzad/sun.svg') !important;
+        object-fit: cover;
+        background-size: cover;
+        bottom: 7px;
+        content: "";
+        height: 21px;
+        top: 4;
+        left: 7px;
+        position: absolute;
+        transition: 0.4s;
+        width: 21px;
+    }
+
+    input:checked+.slider {
+        background-image: url('../images/shahzad/dark-switch.svg') !important;
+
+    }
+
+    input:checked+.slider:before
+    {
+        background-image: url('../images/shahzad/moon.svg') !important;
+        object-fit: cover;
+        background-size: cover;
+        left: 12px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(26px);
+    }
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+    body.dark {
+  background-color: #292c35;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background-color:#111;
+  display: flex;
+  border-radius:50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball{
+  transform: translateX(24px);
+}
