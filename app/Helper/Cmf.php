@@ -13,7 +13,8 @@ class Cmf
 {
     public static function site_settings($columname)
     {
-        return DB::table('system_settings')->where('key' , $columname)->get()->first()->value;
+        // echo $columname;exit;
+        return DB::table('system_settings')->where('key' , 'aditional_css')->get()->first()->value;
     }
     public static function getuserdetailsbyid($id)
     {
