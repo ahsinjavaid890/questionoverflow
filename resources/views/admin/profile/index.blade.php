@@ -86,7 +86,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="useremail">Profile Picture</label>
-                                    <span class="btn btn-primary" data-toggle="modal" data-target="#myModal">Click to Chose Avatar</span>
+                                    <input type="file"  name="profileimage" class="form-control">
                                 </div>
                             </div>
                         </div>

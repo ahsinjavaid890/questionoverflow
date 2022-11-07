@@ -62,7 +62,7 @@
                                             <label for="validationCustom01">Visible Status</label>
                                             <select required="" id="visiblestatus" class="form-control" name="visible_status">
                                                 <option value="">Select Status</option>
-                                                <option value="Published">Published</option>
+                                                <option selected value="Published">Published</option>
                                                 <option value="Trash">Trash</option>
                                                 <option value="Under Review">Under Review</option>
                                             </select>

@@ -59,6 +59,30 @@ class LoginController extends Controller
       Auth::logout();
       return redirect()->route('signin');
     }
+    public function customerlogin(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|max:255|exists:users',
+            'password' => 'required|min:8',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()]);
+        }
+
+        if($this->checkuseractive($request->email) == 0)
+        {
+            return 1;
+        }else{
+            if(auth()->attempt(array('email' => $request->email, 'password' => $request->password, 'active' => 1)))
+            {
+                return 2;
+            }else{
+                return 3;
+            } 
+        }
+
+    }
     public function login(Request $request)
     {   
         $input = $request->all();

@@ -18,7 +18,7 @@ use App\Models\advertisementrequests;
 use App\Models\dailyvisitors;
 use App\Models\categories;
 use App\Models\answerquestions;
-
+use App\Models\questioncoments;
 use App\Models\urlredirection;
 
 use App\Exports\QuestionExports;
@@ -43,25 +43,62 @@ class SiteController extends Controller
     }
    public function index()
    {
-    ini_set('memory_limit', '-1');
-    set_time_limit(20000000000);
-    setcookie('redirecturl', $this->currenturl(), time() + (86400 * 30), "/");
-    if(Auth::check()){
-        $isadmin = Auth::user()->is_admin;
-        if($isadmin == 1)
-        {
-            return redirect()->route('admin.dashboard');
+        if(Auth::check()){
+            $isadmin = Auth::user()->is_admin;
+            if($isadmin == 1)
+            {
+                return redirect()->route('admin.dashboard');
+            }
         }
-    }
-     $blogcategories = blogcategories::where('delete_status' , 'Active')->where('visible_status'  ,'Published')->limit(3000)->get();
-
-      $blogs = DB::table('blogimages')->groupby('image_name')->leftJoin('blogs', 'blogimages.blogid', '=', 'blogs.id')->limit(12)->get();
-
-      $categories = categories::where('status' , 'Active')->get();
-      $testimonials = testimonials::where('status' ,'Published')->get();
-      return view('frontend.index')->with(array('testimonials'=>$testimonials,'categories'=>$categories,'blogcategories'=>$blogcategories,'blogs'=>$blogs));
+        $questions = answerquestions::where('delete_status' , 'Active')->where('visible_status'  ,'Published')->limit(20)->orderby('id' , 'desc')->get();
+        $categories = categories::where('status' , 'Active')->limit(15)->get();
+        return view('frontend.homepage.index')->with(array('categories'=>$categories,'questions'=>$questions));
    }
+   public function alltutorials()
+   {
+       return view('frontend.tutorials.all');
+   }
+   public function allsubjects()
+   {
+       $data = categories::where('status' , 'Active')->paginate(20);
+       return view('frontend.subjects.all')->with(array('data'=>$data));
+   }
+   public function singlequestion($id)
+   {
+      setcookie('redirecturl', $this->currenturl(), time() + (86400 * 30), "/");
+      $data = answerquestions::where('question_url' , $id)->get()->first();
 
+      if(!empty($data))
+      {
+         $answers = onlyanswers::where('delete_status' , 'Active')->where('visible_status' , 'Published')->where('questionid' , $data->id)->orderby('id' , 'desc')->paginate(Cmf::site_settings('frontenddatashowlimit'));
+          $relatedquestion = answerquestions::where('question_subject' , $data->question_subject)->inRandomOrder()->limit(8)->get();
+
+          if($data->delete_status != 'Delete')
+          {
+            if($data->visible_status == 'Published')
+              {
+                $questioncoments = questioncoments::where('question_id' , $data->id)->orderby('id' , 'desc')->get();
+                return view('frontend.question.detail')->with(array('data'=>$data,'answers'=>$answers,'relatedquestion'=>$relatedquestion,'questioncoments'=>$questioncoments));
+              }else{
+                return response()->view('errors.404', [], 404);
+              }
+          }else{
+            return response()->view('errors.404', [], 404);
+          }
+      }else{
+        return response()->view('errors.404', [], 404);
+      }
+   }
+   public function createquestioncoment(Request $request)
+   {
+       $newcoment = new questioncoments();
+       $newcoment->name = $request->name;
+       $newcoment->email = $request->email;
+       $newcoment->comnet = $request->comnet;
+       $newcoment->question_id = $request->id;
+       $newcoment->save();
+       return redirect()->back()->with('message', 'Coment Added Successfully');
+   }
    public function checkurl($id)
    {
       if($this->checkredirection() != 0)
@@ -447,34 +484,7 @@ class SiteController extends Controller
             </li>';
         }
    }
-   public function singlequestion($id)
-   {
-      setcookie('redirecturl', $this->currenturl(), time() + (86400 * 30), "/");
-      $data = answerquestions::where('question_url' , $id)->get()->first();
-
-      if(!empty($data))
-      {
-        $answers = onlyanswers::where('delete_status' , 'Active')->where('visible_status' , 'Published')->where('questionid' , $data->id)->orderby('id' , 'desc')->paginate(Cmf::site_settings('frontenddatashowlimit'));
-          $relatedquestion = answerquestions::where('question_subject' , $data->question_subject)->inRandomOrder()->limit(8)->get();
-
-          if($data->delete_status != 'Delete')
-          {
-            if($data->visible_status == 'Published')
-              {
-                return view('frontend.question-detail')->with(array('data'=>$data,'answers'=>$answers,'relatedquestion'=>$relatedquestion));
-              }else{
-                return response()->view('errors.404', [], 404);
-              }
-          }else{
-            return response()->view('errors.404', [], 404);
-          }
-      }else{
-        return response()->view('errors.404', [], 404);
-      }
-
-
-
-   }
+   
    public function searchnavbar($id)
    {
     $questions = answerquestions::where('delete_status' , 'Active')->where('visible_status' , 'Published')->Where('question_name', 'like', '%' . $id . '%')->limit(5)->get();

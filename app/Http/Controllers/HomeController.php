@@ -26,56 +26,19 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-  
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+
     public function index()
     {
         return view('frontend.user-dashboard');
     }
+    public function askquestion()
+    {
+        return view('frontend.user.askquestion');
+    }
     public function dashboard()
     {
-      if(empty(Auth::user()->accessid))
-      {
-        $userid = Auth::user()->id;
-        $pets = pets::where('users' , $userid)->get();
-        $selectedpet = DB::table('rememberpet')->where('users' , $userid)->get()->first();
-        if(!empty($selectedpet))
-        {
-          $selectedpetname = pets::where('id' , $selectedpet->pet)->get()->first();
-          $bannerimages =  bannerimages::where('users' , $userid)->where('pets' , $selectedpet->pet)->where('pagename' , 'dashboard')->get()->first();
-
-          if(empty($bannerimages))
-          {
-            $bannerimages = 'not';
-          }
-        }else{
-           $bannerimages = 'not';
-          $selectedpetname = 'Add New Pet';
-          
-        }
-        return view('user-panel.dashboard.index')->with(array('pets'=>$pets,'selectedpetname'=>$selectedpetname,'bannerimages'=>$bannerimages));
-      }
-      else{
-        $email = Auth::user()->email;
-        $userid = Auth::user()->id;
-        $getaccessdata = access::where('email' , $email)->get();
-        $checkremeberpet = DB::table('rememberpet')->where('users' , $userid)->count();
-        $petid = $getaccessdata->first()->pets;
-        if($checkremeberpet == 1)
-        {
-            $data = array('pet' => $petid);
-            DB::table('rememberpet')->where('id', $userid)->update($data);
-        }else{
-            DB::statement("INSERT INTO `rememberpet` (`users`, `pet`)VALUES ('$userid', '$petid')");
-        }
-        $selectedpet = DB::table('rememberpet')->where('users' , $userid)->get()->first();
-        $selectedpetname = pets::where('id' , $selectedpet->pet)->get()->first();
-        return view('care-taker.dashboard.index')->with(array('pets'=>$getaccessdata,'selectedpetname'=>$selectedpetname));
-      }
+        $data = Auth::user();
+        return view('frontend.user.userprofile')->with(array('data'=>$data));
     }
     public function redirecttodashboard()
     {
@@ -103,25 +66,20 @@ class HomeController extends Controller
     }
     public function updateuserprofile(Request $request)
     {
-        if(!empty($request->file('profileimage'))){
-            $profileimage = $request->file('profileimage');
-            $image = rand() . '.' . $profileimage->getClientOriginalExtension();
-            $profileimage->move(public_path('images'), $image);
-
-            $data = array('twofactor'=>$request->twofactor,'name'=>$request->name,'username'=>$request->username,"email"=>$request->email,"country"=>$request->country,"phonenumber"=>$request->phonenumber,"state"=>$request->state,"profileimage"=>$image);
-        }else{
-            $data = array('twofactor'=>$request->twofactor,'name'=>$request->name,'username'=>$request->username,"email"=>$request->email,"country"=>$request->country,"phonenumber"=>$request->phonenumber,"state"=>$request->state);
+        $data = user::find(Auth::user()->id);
+        if($request->profileimage)
+        {
+            $data->profileimage = Cmf::sendimagetodirectory($request->profileimage);
         }
-        $id =  Auth::user()->id;
-        user::where('id', $id)->update($data);
+        $data->name = $request->name;
+        $data->about = $request->about;
+        $data->country = $request->country;
+        $data->facebook = $request->facebook;
+        $data->twitter = $request->twitter;
+        $data->website = $request->website;
+        $data->instagram = $request->instagram;
+        $data->save();
         return redirect()->back()->with('message', 'Your Profile Updated Successfully');
-    }
-    public function updateusersociallinks(Request $request)
-    {
-        $data = array('facebook'=>$request->facebook,'twitter'=>$request->twitter,"linkdlin"=>$request->linkdlin);
-        $id =  Auth::user()->id;
-        user::where('id', $id)->update($data);
-        return redirect()->back()->with('message', 'Social Media Links Updated Successfully');
     }
     public function updateusersecurity(Request $request)
     {
@@ -155,42 +113,12 @@ class HomeController extends Controller
     }
     public function profilesettings()
     {
-      
-      return view('frontend.user.profile-settings');
+      $data = Auth::user();
+      return view('frontend.user.profile-settings')->with(array('data'=>$data));
     }
     public function support()
     {
-      
       return view('support.index');
-    }
-    public function checkcode($id)
-    {
-      $checkcode = DB::table('discounts')->where('coupen' , $id);
-      if($checkcode->count() > 0)
-      {
-        $end_date = $checkcode->get()->first()->end_date;
-        $status = $checkcode->get()->first()->status;
-        if($status == 0)
-        {
-          echo "notactivated";
-        }else{
-          $todaydate = date('Y-m-d');
-
-          $diff=date_diff(date_create($todaydate),date_create($end_date));
-          $checkdate =  $diff->format('%d days');
-
-          if($checkdate > 0)
-          {
-            return response()->json(['success' => 'success','discount' => $checkcode->get()->first()->discount,'percentageorfix' => $checkcode->get()->first()->percentageorfix]);
-          }else{
-            echo "expired";
-          }
-        }
-      }
-      else
-      {
-        echo "incorect";
-      }
     }
     // Admin
     public function adminHome()

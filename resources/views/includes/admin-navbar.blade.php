@@ -67,7 +67,7 @@
         <li class="dropdown notification-list">
             <a  class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <span class="account-user-avatar">
-                    <img src="{{ Auth::user()->profileimage }}" alt="user-image" class="rounded-circle">
+                    <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
                     <span class="account-user-name">{{ Auth::user()->name }}</span>

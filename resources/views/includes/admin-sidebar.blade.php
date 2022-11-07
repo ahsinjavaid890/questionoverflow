@@ -4,7 +4,7 @@
     <div class="leftbar-user">
         <a href="javascript: void(0);">
             <div class="account-user-avatar">
-                <img src="{{ Auth::user()->profileimage }}" alt="user-image" height="42" class="rounded-circle">
+                <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" alt="user-image" height="42" class="rounded-circle">
             </div>
             <span class="leftbar-user-name">{{ Auth::user()->name }}</span>
         </a>
@@ -12,45 +12,71 @@
 
     <!--- Sidemenu -->
     <ul class="metismenu side-nav">
-        <li class="side-nav-title side-nav-item">Navigation</li>
-        @foreach(DB::table('adminmodulesparent')->get() as $r)
-            @php
-                $child = DB::table('adminmoduleschild')->where('adminmodulesparent' , $r->id);
-            @endphp
-            @if(Cmf::checkuserrolparent($r->id) > 0)
-                <li class="side-nav-item">
-                    <a href="@if($child->count() > 0)javascript: void(0);@else {{url('admin')}}/{{ $r->url }}@endif" class="side-nav-link">
-                        <i class="{{ $r->icon }}"></i>
-                        @if(!empty($r->counter))
-                        <span class="badge badge-info badge-pill float-right" style=" margin-right: -3px; ">{{ DB::table($r->counter)->where('status', 1)->count() }}</span>
-                        @endif
-                        <span> {{ $r->modulename }} </span>
-                        @if($child->count() > 0)
-                        <span class="menu-arrow"></span>
-                        @endif
-                    </a>
-                    @if($child->count() > 0)
-                    <ul class="side-nav-second-level" aria-expanded="false">
-                        @foreach($child->get() as $c)
-                            @if(Cmf::checkuserrolchild($c->id) > 0)
-                                @if(DB::table('checkcounter')->where('childid' , $c->id)->count() > 0)
-                                    <li>
-                                        <a href="{{url('admin')}}/{{ $c->url }}">{{ $c->name }}<span class="badge badge-info badge-pill float-right" style=" margin-right: -3px; ">{{ DB::table($c->counter)->where('newstatus', 'new')->count() }}</span></a>
-
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="{{url('admin')}}/{{ $c->url }}">{{ $c->name }}</a>
-                                    </li>
-                                @endif
-                            @endif
-
-                        @endforeach
-                    </ul>
-                    @endif
-                </li>
-                @endif
-        @endforeach
+        <li class="side-nav-item">
+            <a href="{{url('admin/dashboard')}}" class="side-nav-link">Dashboard</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Categories
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">
+                <li><a href="{{url('admin/add-category')}}">Add Category</a></li>
+                <li><a href="{{url('admin/all-categories')}}">All Categories</a></li>
+                
+            </ul>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Blogs
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">     
+                <li><a href="{{url('admin/add-blog')}}">Add Blog</a></li>
+                <li><a href="{{url('admin/blogs')}}">All Blogs</a></li>
+                <li><a href="{{url('admin/blog-categories')}}">Blog Category</a></li>
+                <li><a href="{{url('admin/blog/addnewcategory')}}">Add Blog Category</a></li>
+            </ul>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Dynamic Pages
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">     
+                <li><a href="{{url('admin/add-page')}}">Add Page</a></li>
+                <li><a href="{{url('admin/all-pages')}}">All Pages</a></li>
+            </ul>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Questions
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">     
+                <li><a href="{{url('admin/questions')}}">All Questions</a></li>
+                <li><a href="{{url('admin/add-question')}}">Add Question</a></li>
+                <li><a href="{{url('admin/answers')}}">All Answers</a></li>
+            </ul>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Settings
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">     
+                <li><a href="{{url('admin/settings')}}">Website Settings</a></li>
+                <li><a href="{{url('admin/email-settings')}}">Email Settings</a></li>
+                <li><a href="{{url('admin/payement-gatewaysettings')}}">Payement Settings</a></li>
+                <li><a href="{{url('admin/theme-settings')}}">Theme Settings</a></li>
+            </ul>
+        </li>
+        <li class="side-nav-item">
+            <a href="{{url('admin/profile')}}" class="side-nav-link">My Profile</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="{{ route('logout') }}" class="side-nav-link">Logout</a>
+        </li>
     </ul>
 
 </div>

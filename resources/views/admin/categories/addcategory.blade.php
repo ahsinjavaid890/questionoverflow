@@ -46,32 +46,10 @@
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
-                        </div>
+                        </div>                        
                         <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Background Color</label>
-                            <input type="text" class="form-control" name="color" id="validationCustom01"
-                                placeholder="Title" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Text Color</label>
-                            <input type="text" value="style='color:black !important'" class="form-control" name="text_color" id="validationCustom01"
-                                placeholder="Title" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-
-                        
-                        <div class="form-group mb-3">
-                            <label for="validationCustom03">Icon / Image</label>
-                            <input type="file" class="form-control" name="icon" id="validationCustom09"
-                                 >
-                            <div class="invalid-feedback">
-                                Please attach image file.
-                            </div>
+                            <label for="validationCustom03">Description</label>
+                            <textarea class="form-control" name="description"></textarea>
                         </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->

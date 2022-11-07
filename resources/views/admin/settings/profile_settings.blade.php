@@ -52,7 +52,7 @@
         <div class="col-xl-4 col-lg-5">
             <div class="card text-center">
                 <div class="card-body">
-                    <img src="{{ Auth::user()->profileimage }}" class="rounded-circle avatar-lg img-thumbnail"
+                    <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" class="rounded-circle avatar-lg img-thumbnail"
                     alt="profile-image">
 
                     <h4 class="mb-0 mt-2">{{ Auth::user()->name }}</h4>
@@ -114,8 +114,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <br>
-                                    <span class="btn btn-primary" data-toggle="modal" data-target="#myModal">Click to Chose Avatar</span>
+                                    <label>Profile Image</label>
+                                    <input type="file"  name="profileimage" class="form-control">
                                 </div>
                             </div>
                             <div class="col-6">

@@ -984,19 +984,13 @@ class AdminController extends Controller
             $category = new categories;
             $category->name = $name;
             $category->url = $request->slug;
-            $category->backgroundcolor = $request->color;
-            $category->text_color = $request->text_color;
+            $category->description = $request->description;
             $category->metta_tittle = $request->metta_tittle;
             $category->metta_description = $request->metta_description;
             $category->metta_keywords = $request->metta_keywords;            
             $category->status = $request->status;
             $category->order = $request->order;
             $category->save();
-            Cmf::savesiteurl($request->slug , 'category');
-            if(!empty($request->icon))
-            {
-                Cmf::save_image_name('subjectimages' , 'subjectid' , $category->id , $request->icon);
-            }
             return redirect()->back()->with('message', 'Category Successfully Inserted');
         }
     }
@@ -1716,9 +1710,7 @@ class AdminController extends Controller
     }
     public function createquestion(Request $request)
     {
-
-        $previusid =   DB::table('answerquestions')->Orderby('id' , 'DESC')->get()->first()->id;
-        $randid = $previusid+1;
+        $randid = rand(1000 , 2000);
         $name = $request->question_name;
         $url = $this->slugify($name);
         $shortenurl = Cmf::shorten_url($url);
@@ -1731,7 +1723,6 @@ class AdminController extends Controller
             $url = $shortenurl;
         }
         $question = new answerquestions;
-        $question->id = $randid;
         $question->question_name = $request->question_name;
         $question->question_content = $request->question_content;
         $question->question_url = $url;

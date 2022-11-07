@@ -1,18 +1,42 @@
 <?php
 
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+
+// Authentication Routes
+Route::POST('customerlogin', [LoginController::class, 'customerlogin']);
+Route::POST('userregister', [RegisterController::class, 'userregister']);
+Route::get('/authentication/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/profile/notifications', [HomeController::class, 'notifications'])->name('notifications');
+Route::get('/profile/saved', [HomeController::class, 'saved'])->name('saved');
+Route::get('/profile/answered', [HomeController::class, 'answered'])->name('answered');
+Route::get('/profile/unanswered', [HomeController::class, 'unanswered'])->name('unanswered');
+Route::get('/checkusername/{id}', [HomeController::class, 'checkusername']);
+Route::get('profile-settings', [HomeController::class, 'profilesettings']);
+Route::POST('/updateuserprofile', [HomeController::class, 'updateuserprofile']);
+Route::POST('/updateusersecurity', [HomeController::class, 'updateusersecurity']);
+Route::get('/ask', [HomeController::class, 'askquestion']);
+
+
+
+
+
+// Website routes
+Route::get('/', [SiteController::class, 'index'])->name('home');
+Route::get('allsubjects', [SiteController::class, 'allsubjects']);
+Route::get('tutorials', [SiteController::class, 'alltutorials']);
+Route::get('question/{id}', [SiteController::class, 'singlequestion']);
+Route::POST('createquestioncoment', [SiteController::class, 'createquestioncoment']);
+
+
+
 Route::get('/updateapp', function()
 {
     \Artisan::call('dump-autoload');
@@ -38,15 +62,13 @@ Route::get('dynamicpagesitemap.xml', [App\Http\Controllers\SitemapController::cl
 
 Route::get('search/{id}', [App\Http\Controllers\SiteController::class, 'searchnavbarpost']);
 
-Route::get('question/{id}', [App\Http\Controllers\SiteController::class, 'singlequestion']);
+
 Route::get('loadmorepage/{id}', [App\Http\Controllers\SiteController::class, 'loadmorepage']);
 
 Route::get('tag/{id}', [App\Http\Controllers\SiteController::class, 'showbytags']);
 
 
 // SiteController
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name('home');
-Route::get('/{id}', [App\Http\Controllers\SiteController::class, 'checkurl']);
 Route::get('/submitcontactus/{name}/{email}/{message}', [App\Http\Controllers\SiteController::class, 'submitcontactus']);
 Route::get('addemailfornewsletter/{id}', [App\Http\Controllers\SiteController::class, 'addemailfornewsletter']);
 Route::get('/checkslug/{id}', [App\Http\Controllers\SiteController::class, 'checkslug']);
@@ -75,15 +97,7 @@ Route::get('/user-profile/{id}/{answerd}', [App\Http\Controllers\SiteController:
 
 
 // HomeController
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
-Route::get('/profile/notifications', [App\Http\Controllers\HomeController::class, 'notifications'])->name('notifications');
-Route::get('/profile/saved', [App\Http\Controllers\HomeController::class, 'saved'])->name('saved');
-Route::get('/profile/answered', [App\Http\Controllers\HomeController::class, 'answered'])->name('answered');
-Route::get('/profile/unanswered', [App\Http\Controllers\HomeController::class, 'unanswered'])->name('unanswered');
-Route::get('/checkusername/{id}', [App\Http\Controllers\HomeController::class, 'checkusername']);
 
-
-Route::get('/user/profile-settings', [App\Http\Controllers\HomeController::class, 'profilesettings'])->name('profilesettings');
 Route::get('/support', [App\Http\Controllers\HomeController::class, 'support'])->name('profilesettings');
 Route::get('/checkcode/{id}', [App\Http\Controllers\HomeController::class, 'checkcode'])->name('checkcode');
 Route::get('/editquestion/{id}', [App\Http\Controllers\HomeController::class, 'editquestion'])->name('editquestion');
@@ -104,7 +118,6 @@ Route::POST('profilepicturechange', [App\Http\Controllers\HomeController::class,
 // Authentication Routes...
 
 Route::POST('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
-Route::get('/authentication/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 // Password Reset Routes...
 Route::get('password/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -304,8 +317,7 @@ Route::get('/admin/deletecategory/{id}', [App\Http\Controllers\AdminController::
 
 // Admin Profile
 Route::get('admin/profile', [App\Http\Controllers\AdminController::class, 'profile']);
-Route::POST('/updateuserprofile', [App\Http\Controllers\HomeController::class, 'updateuserprofile']);
-Route::POST('/updateusersecurity', [App\Http\Controllers\HomeController::class, 'updateusersecurity']);
+
 
 
 // Admin Profile
