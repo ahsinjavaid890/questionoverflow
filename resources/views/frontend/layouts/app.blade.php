@@ -13,14 +13,14 @@
     <!-- Favicon -->
     <link rel="icon" sizes="16x16" href="images/favicon.png">
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ url('front/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/line-awesome.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/selectize.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/jquery-te-1.4.0.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/upvotejs.min.css') }}">
-    <link rel="stylesheet" href="{{ url('front/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/line-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/selectize.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/jquery-te-1.4.0.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/upvotejs.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/style.css') }}">
     <!-- end inject -->
 </head>
     <body>
@@ -38,17 +38,17 @@
         <div id="back-to-top" data-toggle="tooltip" data-placement="top" title="Return to top">
             <i class="la la-arrow-up"></i>
         </div>
-        <script src="{{ url('front/js/jquery-3.4.1.min.js') }}"></script>
-        <script src="{{ url('front/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ url('front/js/owl.carousel.min.js') }}"></script>
-        <script src="{{ url('front/js/selectize.min.js') }}"></script>
-        <script src="{{ url('front/js/main.js') }}"></script>
+        <script src="{{ url('public/front/js/jquery-3.4.1.min.js') }}"></script>
+        <script src="{{ url('public/front/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url('public/front/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url('public/front/js/selectize.min.js') }}"></script>
+        <script src="{{ url('public/front/js/main.js') }}"></script>
 
 
-        <script src="{{ url('front/js/jquery-te-1.4.0.min.js') }}"></script>
-        <script src="{{ url('front/js/upvote.vanilla.js') }}"></script>
-        <script src="{{ url('front/js/upvote-script.js') }}"></script>
-        <script src="{{ url('front/js/jquery.multi-file.min.js') }}"></script>
+        <script src="{{ url('public/front/js/jquery-te-1.4.0.min.js') }}"></script>
+        <script src="{{ url('public/front/js/upvote.vanilla.js') }}"></script>
+        <script src="{{ url('public/front/js/upvote-script.js') }}"></script>
+        <script src="{{ url('public/front/js/jquery.multi-file.min.js') }}"></script>
         @include('frontend.includes.authenticationmodal')
     </body>
 </html>

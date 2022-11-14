@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-lg-2">
                 <div class="logo-box">
-                    <a href="{{ url('') }}" class="logo"><img src="{{ url('front/images/logo-black.png') }}" alt="logo"></a>
+                    <a href="{{ url('') }}" class="logo"><img src="{{ url('public/front/images/logo-black.png') }}" alt="logo"></a>
                     <div class="user-action">
                         <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
                             <i class="la la-search"></i>

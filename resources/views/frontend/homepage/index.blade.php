@@ -43,15 +43,15 @@
                 <div class="col-lg-3">
                     <div class="hero-list hero-list-bg">
                         <div class="d-flex align-items-center pb-30px">
-                            <img src="{{ url('front/images/anonymousHeroQuestions.svg') }}" alt="question icon" class="mr-3">
+                            <img src="{{ url('public/front/images/anonymousHeroQuestions.svg') }}" alt="question icon" class="mr-3">
                             <p class="fs-15 text-white lh-20">Anybody can ask a question</p>
                         </div>
                         <div class="d-flex align-items-center pb-30px">
-                            <img src="{{ url('front/images/anonymousHeroAnswers.svg') }}" alt="question answer icon" class="mr-3">
+                            <img src="{{ url('public/front/images/anonymousHeroAnswers.svg') }}" alt="question answer icon" class="mr-3">
                             <p class="fs-15 text-white lh-20">Anybody can answer</p>
                         </div>
                         <div class="d-flex align-items-center">
-                            <img src="{{ url('front/images/anonymousHeroUpvote.svg') }}" alt="vote icon" class="mr-3">
+                            <img src="{{ url('public/front/images/anonymousHeroUpvote.svg') }}" alt="vote icon" class="mr-3">
                             <p class="fs-15 text-white lh-20">The best answers are voted up and rise to the top</p>
                         </div>
                     </div>
@@ -382,7 +382,7 @@
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{{ url('front/images/bubble.png') }}" alt="bubble">
+                        <img src="{{ url('public/front/images/bubble.png') }}" alt="bubble">
                         <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
                         <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
                     </div>
@@ -394,7 +394,7 @@
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{{ url('front/images/vote.png') }}" alt="vote">
+                        <img src="{{ url('public/front/images/vote.png') }}" alt="vote">
                         <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
                         <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
                     </div>
@@ -406,7 +406,7 @@
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y text-center">
                     <div class="card-body">
-                        <img src="{{ url('front/images/check.png') }}" alt="check">
+                        <img src="{{ url('public/front/images/check.png') }}" alt="check">
                         <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
                         <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
                     </div>

@@ -62,7 +62,7 @@
         <div class="row align-items-center pb-4 copyright-wrap">
             <div class="col-lg-6">
                 <a href="index.html" class="d-inline-block">
-                <img src="{{ url('front/images/logo-white.png') }}" alt="footer logo" class="footer-logo">
+                <img src="{{ url('public/front/images/logo-white.png') }}" alt="footer logo" class="footer-logo">
             </a>
             </div>
             <!-- end col-lg-6 -->
