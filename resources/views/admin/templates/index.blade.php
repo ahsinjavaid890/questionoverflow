@@ -52,8 +52,7 @@
                                 <td>{{ date('d M Y, h:s a ', strtotime($r->created_at)) }}</td>
                                 <td>{{ $r->order }}</td>
                                 <td class="table-action text-center">
-                                   <!--  <a href="{{url('admin/category/edit')}}/{{ $r->id }}" class="action-icon" title="Edit Category"> <i class="mdi mdi-pencil"></i></a>
-                                    <a onclick="return confirm('Are You Sure You want to Delete This')" href="{{url('admin/deletecategory')}}/{{ $r->id }}" class="action-icon" title="Delte Category"> <i class="mdi mdi-delete"></i></a> -->
+                                    <a href="{{url('admin/templates/editcategory')}}/{{ $r->id }}" class="action-icon" title="Edit Category"> <i class="mdi mdi-pencil"></i></a>
                                 </td>
                             </tr>
                             @endforeach

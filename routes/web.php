@@ -391,5 +391,7 @@ Route::POST('/addnewredirect', [App\Http\Controllers\AdminController::class, 'ad
 Route::name('admin.templates.')->prefix('admin/templates')->group(function(){
     Route::get('allcategories', [AdminController::class, 'alltemplatecategories']);
     Route::get('addcategory', [AdminController::class, 'addtemplatecategory']);
+    Route::get('editcategory/{id}', [AdminController::class, 'edittemplatecategory']);
+    Route::POST('/updatecategory', [AdminController::class, 'updatetemplatecategory']);
     Route::POST('/createcategory', [AdminController::class, 'createtemplatecategory']);
 });

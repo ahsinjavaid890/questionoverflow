@@ -2261,7 +2261,11 @@ class AdminController extends Controller
     {
         return view('admin.templates.add');
     }
-
+    public function edittemplatecategory($id)
+    {
+        $data = alltemplatecategories::find($id);
+        return view('admin.templates.editcategory')->with(array('data'=>$data));
+    }
     public function createtemplatecategory(Request $request)
     {
         $category = new alltemplatecategories;
@@ -2275,7 +2279,24 @@ class AdminController extends Controller
         $category->status = $request->status;
         $category->order = $request->order;
         $category->save();
-        return redirect()->back()->with('message', 'Category Successfully Inserted');
-        
+        return redirect()->back()->with('message', 'Category Successfully Inserted');   
+    }
+    public function updatetemplatecategory(Request $request)
+    {
+        $category = alltemplatecategories::find($request->id);
+        $category->name = $request->name;
+        $category->url = $request->slug;
+        if($request->image)
+        {
+            $category->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $category->description = $request->description;
+        $category->metta_tittle = $request->metta_tittle;
+        $category->metta_description = $request->metta_description;
+        $category->metta_keywords = $request->metta_keywords;            
+        $category->status = $request->status;
+        $category->order = $request->order;
+        $category->save();
+        return redirect()->back()->with('message', 'Category Successfully Inserted');  
     }
 }
