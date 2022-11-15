@@ -1,5 +1,5 @@
 @extends('layouts.admin-app')
-@section('title','New Category')
+@section('title','Edit Template')
 @section('content-admin')
 <!-- Start Content-->
 <div class="container-fluid">
@@ -21,8 +21,9 @@
     </div>
     <!-- end page title -->
     @include('admin.alert')
-    <form enctype="multipart/form-data" method="POST" action="{{ url('admin/templates/createtemplate') }}" class="needs-validation" novalidate>
+    <form enctype="multipart/form-data" method="POST" action="{{ url('admin/templates/updatetemplate') }}" class="needs-validation" novalidate>
         {{ csrf_field() }}
+        <input type="hidden" value="{{ $data->id }}" name="id">
     <div class="row">
         <div class="col-lg-8">
             <div class="card">
@@ -35,32 +36,32 @@
                             <select name="category_id" class="form-control">
                                 <option value="">Select Category</option>
                                 @foreach($category as $r)
-                                <option value="{{ $r->id }}">{{ $r->name }}</option>
+                                <option @if($data->category_id == $r->id) selected @endif value="{{ $r->id }}">{{ $r->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="validationCustom01">Category Name</label>
-                            <input onkeyup="createslug(this.value)" type="text" class="form-control" name="name" id="validationCustom01"
+                            <input value="{{ $data->name }}" onkeyup="createslug(this.value)" type="text" class="form-control" name="name" id="validationCustom01"
                                 placeholder="Title" required>
                         </div>
                         <div class="form-group mb-2">
                             <label for="validationCustom02">Slug</label>
-                            <input type="text" id="slug" class="form-control" name="slug" onkeyup="checkslug()" required >
+                            <input value="{{ $data->url }}" type="text" id="slug" class="form-control" name="slug" onkeyup="checkslug()" required >
                                  <small id="slugerror" class="mt-1 text-danger"></small>
                         </div> 
                         <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Image</label>
-                            <input type="file" class="form-control" name="image"  required>
+                            <label for="validationCustom01">Template Image</label>
+                            <input type="file" class="form-control" name="image"  >
                         </div>
                         <div class="form-group mb-3">
                             <label for="validationCustom01">Zip File</label>
-                            <input type="file" class="form-control" name="zipfile"  required>
+                            <input type="file" class="form-control" name="zipfile"  >
                         </div>
                                                
                         <div class="form-group mb-3">
                             <label for="validationCustom03">Description</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea class="form-control" name="description">{{ $data->description }}</textarea>
                         </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
@@ -73,7 +74,7 @@
                 <div class="card-body">
                         <div class="form-group mb-2">
                             <label for="validationCustom03">Meta Title</label>
-                            <input type="text" class="form-control" name="metta_tittle" id="meta_title">
+                            <input value="{{ $data->meta_title }}" type="text" class="form-control" name="metta_tittle" id="meta_title">
                         </div>
 
                         <div class="row mb-2">
@@ -81,7 +82,7 @@
                                 <div class="form-group">
                                     <label for="validationCustom04">Meta Description</label>
                                     <textarea class="form-control" name="metta_description" id="meta_description"
-                                        placeholder="Put something" rows="4"></textarea>
+                                        placeholder="Put something" rows="4">{{ $data->metta_description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -90,23 +91,23 @@
                                 <div class="form-group">
                                     <label for="validationCustom04">Meta Keywords</label>
                                     <textarea class="form-control" name="metta_keywords" id="meta_keywords"
-                                        placeholder="Put something" rows="4"></textarea>
+                                        placeholder="Put something" rows="4">{{ $data->metta_keywords }}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mb-2">
-                        <input type="radio" checked="" value="Active" name="status" id="active">
-                        <label for="active">Published</label>
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="radio" value="delete" name="status" id="delete">
-                            <label for="delete">Not Published</label>
-                        </div>
-                        <div class="row mb-2">
+                            <input type="radio" @if($data->status == 'Active') checked @endif value="Active" name="status" id="active">
+                            <label for="active">Published</label>
+                            </div>
+                            <div class="form-group mb-2">
+                                <input @if($data->status == 'delete') checked @endif type="radio" value="delete" name="status" id="delete">
+                                <label for="delete">Not Published</label>
+                            </div>
+                            <div class="row mb-2">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="order">Category Order</label>
-                                    <input class="form-control" id="order"  type="number"  name="order">
+                                    <input value="{{ $data->order }}" class="form-control" id="order"  type="number"  name="order">
                                 </div>
                             </div>
                         </div>

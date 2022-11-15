@@ -24,7 +24,7 @@ use App\Models\expertrequest;
 use App\Models\answerquestions;
 use App\Models\alltemplatecategories;
 use App\Models\uploadedfiledata;
-use App\Models\urlredirection;
+use App\Models\templates;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\userfile;
 use Illuminate\Support\Str;
@@ -2303,5 +2303,58 @@ class AdminController extends Controller
     {
         $category = alltemplatecategories::all();
         return view('admin.templates.addnewtemplate')->with(array('category'=>$category));;
+    }
+    public function alltemplates()
+    {
+        $data = templates::all();
+        return view('admin.templates.alltemplates')->with(array('data'=>$data));
+    }
+    public function edittemplate($id)
+    {
+        $data = templates::find($id);
+        $category = alltemplatecategories::all();
+        return view('admin.templates.edittemplate')->with(array('data'=>$data,'category'=>$category));
+    }
+    public function createtemplate(Request $request)
+    {
+        $add = new templates;
+        $add->user_id = Auth::user()->id;
+        $add->category_id = $request->category_id;
+        $add->name = $request->name;
+        $add->url = $request->slug;
+        $add->image = Cmf::sendimagetodirectory($request->image);
+        $add->zipfile = Cmf::sendimagetodirectory($request->zipfile);
+        $add->description = $request->description;
+        $add->metta_tittle = $request->metta_tittle;
+        $add->metta_description = $request->metta_description;
+        $add->metta_keywords = $request->metta_keywords;            
+        $add->status = $request->status;
+        $add->order = $request->order;
+        $add->save();
+        return redirect()->back()->with('message', 'Template Successfully Inserted');   
+    }
+    public function updatetemplate(Request $request)
+    {
+        $add = templates::find($request->id);
+        $add->user_id = Auth::user()->id;
+        $add->category_id = $request->category_id;
+        $add->name = $request->name;
+        $add->url = $request->slug;
+        if($request->image)
+        {
+            $add->image = Cmf::sendimagetodirectory($request->image);
+        }
+        if($request->zipfile)
+        {
+            $category->image = Cmf::sendimagetodirectory($request->zipfile);
+        }
+        $add->description = $request->description;
+        $add->metta_tittle = $request->metta_tittle;
+        $add->metta_description = $request->metta_description;
+        $add->metta_keywords = $request->metta_keywords;            
+        $add->status = $request->status;
+        $add->order = $request->order;
+        $add->save();
+        return redirect()->back()->with('message', 'Template Successfully Updated');   
     }
 }
