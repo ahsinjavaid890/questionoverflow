@@ -2,16 +2,16 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>{!! Cmf::site_settings('website_name') !!} | Login</title>
+  <title>Admin Login</title>
   <!-- Stylesheets -->
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,900&amp;display=swap" rel="stylesheet" />
-  <link href="{{ asset('/admin/css/icons.min.css') }}" rel="stylesheet" />
-  <link href="{{ asset('/admin/css/app.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('public/admin/css/icons.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('public/admin/css/app.min.css') }}" rel="stylesheet" />
   <input type="hidden" value="{{ url('') }}" id="mainurl">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<script src="{{ asset('/admin/js/vendor.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('/admin/js/app.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('public/admin/js/vendor.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/admin/js/app.min.js') }}" type="text/javascript"></script>
 <style>
     .loader {
       border: 16px solid #f3f3f3;
@@ -47,7 +47,7 @@
                             <!-- Logo -->
                             <div class="card-header pt-4 pb-4 text-center bg-white">
                                 <a href="index.html">
-                                    <span><img src="{{asset('/admin/images/logo.png')}}" alt="" height="40"></span>
+                                    <span><img src="{{asset('public/admin/images/logo.png')}}" alt="" height="40"></span>
                                 </a>
                             </div>
 

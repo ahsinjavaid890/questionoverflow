@@ -4,7 +4,7 @@
     <div class="leftbar-user">
         <a href="javascript: void(0);">
             <div class="account-user-avatar">
-                <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" alt="user-image" height="42" class="rounded-circle">
+                <img src="{{ url('public/images') }}/{{ Auth::user()->profileimage }}" alt="user-image" height="42" class="rounded-circle">
             </div>
             <span class="leftbar-user-name">{{ Auth::user()->name }}</span>
         </a>
@@ -14,6 +14,16 @@
     <ul class="metismenu side-nav">
         <li class="side-nav-item">
             <a href="{{url('admin/dashboard')}}" class="side-nav-link">Dashboard</a>
+        </li>
+        <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Templates
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">
+                <li><a href="{{url('admin/templates/allcategories')}}">All Categories</a></li>            
+                 <li><a href="{{url('admin/templates/addcategory')}}">Add Category</a></li>
+            </ul>
         </li>
         <li class="side-nav-item">
             <a href="javasript::void(0)" class="side-nav-link">Categories

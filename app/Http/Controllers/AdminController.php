@@ -22,7 +22,7 @@ use App\Imports\Abusivewordsimport;
 use App\Imports\Usersimport;
 use App\Models\expertrequest;
 use App\Models\answerquestions;
-use App\Models\abusivealerts;
+use App\Models\alltemplatecategories;
 use App\Models\uploadedfiledata;
 use App\Models\urlredirection;
 use Maatwebsite\Excel\Facades\Excel;
@@ -65,53 +65,9 @@ class AdminController extends Controller
         }
         return $text;
     }
-    public function allsiteurl()
-    {
-        $data = DB::table('siteurls')->paginate(Cmf::site_settings('datashowlimit'));
-        $status = 'all';
-        return view('admin.siteurls.index')->with(array('data'=>$data,'statusnavbar'=>$status));
-    }
-    public function deletepage($id)
-    {
-        $data = DB::table('dynamicpages')->where('id' , $id)->get()->first();
-
-        DB::table('siteurls')->where('modulename' , 'dynamicpages')->where('url' , $data->slug)->delete();
-
-        DB::table('dynamicpages')->where('id' , $id)->delete();
-        return redirect()->back()->with('message', 'Page Deleted Successfully');
-    }
     public function dashboard()
     {
         return view('admin.dashboard');
-    }
-    public function twofactor(Request $request)
-    {
-        $userid = auth()->user()->id;
-        $userdata = user::where('id' , $userid)->get()->first();
-        $code = $userdata->two_factor_code;
-        if($code == $request->code)
-        {
-            $data = array('authenticated'=>1);
-            DB::table('users')->where('id' , auth()->user()->id)->update($data);
-            return redirect()->route('admin.dashboard');
-        }else{
-            return redirect()->back()->with('message', 'Code Is Inforect Please Try Again');
-        }
-    }
-    public function resendcode()
-    {
-        $code = rand(100000, 999999);
-        $email = auth()->user()->email;
-        $subject = 'Two Factor Authentication Code';
-        $User = User::find(auth()->user()->id);
-        $User->two_factor_code = $code;
-        $User->two_factor_expires_at = now()->addMinutes(10);
-        $User->save();
-        Mail::send(array('html' => 'emails.contact'), array('code' => $code,'email' => $email), function($message) use ($email, $subject)
-        {
-            $message->to($email)->subject($subject);
-        });
-        return redirect()->back()->with('successmessage', 'Code Send Successfully Please Check youe Email');
     }
     public function changenotificationstatus($id)
     {
@@ -190,48 +146,6 @@ class AdminController extends Controller
             $data = array('published'=>1);
         }
         plans::where('id', $one)->update($data);
-    }
-    /****************************************************
-                   Module Module
-    *****************************************************/
-    public function modulesinformation()
-    {
-        $data = modules::all();
-        return view('admin.information.all')->with(array('data'=>$data));
-    }
-    public function addinformation($id)
-    {
-        $data = modules::where('id' , $id)->get()->first();
-        return view('admin.information.addinformation')->with(array('data'=>$data));
-    }
-    public function updatemodule(Request $request)
-    {
-        $id = $request->id;
-        if($file=$request->file('image')){
-            $imagename=rand() . '.' . $file->getClientOriginalName();
-            $file->move(public_path('images'),$imagename);
-            $data = array('image'=>$imagename);
-            modules::where('id', $id)->update($data);
-        }
-        if($file=$request->file('icon')){
-            $imagename=rand() . '.' . $file->getClientOriginalName();
-            $file->move(public_path('images'),$imagename);
-            $data = array('icon'=>$imagename);
-            modules::where('id', $id)->update($data);
-        }
-        $data2 = array('name'=>$request->name,'video'=>$request->video,'instructions'=>$request->description);
-        modules::where('id', $id)->update($data2);
-        return redirect()->back()->with('message', 'Updated Successfully');
-    }
-    public function changetopublish($one , $two)
-    {
-        if($two == 1)
-        {
-            $data = array('published'=>0);
-        }else{
-            $data = array('published'=>1);
-        }
-        modules::where('id', $one)->update($data);
     }
     /****************************************************
                    Users Module
@@ -463,23 +377,6 @@ class AdminController extends Controller
         $status = 'search';
         return view('admin.siteurls.index')->with(array('data'=>$data,'statusnavbar'=>$status,'searchword'=>$request->searchword));
     }
-
-    public function addnewredirect(Request $request)
-    {
-        $testimonials = new urlredirection;
-        $testimonials->from = request('fromurl');
-        $testimonials->to = request('tourl');
-        $testimonials->save();
-        return redirect()->back()->with('message', 'Redirect Successfully Inserted');
-    }
-    
-
-    public function urlredirection()
-    {
-        $data = urlredirection::all();
-        return view('admin.siteurls.redirection')->with(array('data'=>$data));
-    }
-
     public function blogswithid($id)
     {
         if($id == 'published')
@@ -2353,5 +2250,32 @@ class AdminController extends Controller
 
 
         }
+    }
+    public function alltemplatecategories(Request $request)
+    {
+        $data = alltemplatecategories::all();
+        return view('admin.templates.index')->with(array('data'=>$data));
+    }
+
+    public function addtemplatecategory()
+    {
+        return view('admin.templates.add');
+    }
+
+    public function createtemplatecategory(Request $request)
+    {
+        $category = new alltemplatecategories;
+        $category->name = $request->name;
+        $category->url = $request->slug;
+        $category->image = Cmf::sendimagetodirectory($request->image);
+        $category->description = $request->description;
+        $category->metta_tittle = $request->metta_tittle;
+        $category->metta_description = $request->metta_description;
+        $category->metta_keywords = $request->metta_keywords;            
+        $category->status = $request->status;
+        $category->order = $request->order;
+        $category->save();
+        return redirect()->back()->with('message', 'Category Successfully Inserted');
+        
     }
 }

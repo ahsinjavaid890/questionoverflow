@@ -32,19 +32,19 @@
 <section class="blog-area pt-80px pb-80px">
     <div class="container">
         <div class="row">
-            @for ($i=0; $i < 6; $i++)
+            @foreach(DB::table('alltemplatecategories')->get() as $r)
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-y">
                     <a href="javascript:void(0)" class="card-img">
-                        <img class="lazy" src="https://www.cloudways.com/blog/wp-content/uploads/Ecommerce-Shopping-Infographics.png" data-src="https://www.cloudways.com/blog/wp-content/uploads/Ecommerce-Shopping-Infographics.png" alt="Card image">
+                        <img class="lazy" src="{{ url('public/images') }}/{{ $r->image }}" data-src="https://www.cloudways.com/blog/wp-content/uploads/Ecommerce-Shopping-Infographics.png" alt="Card image">
                     </a>
                     <div class="card-body pt-0">
-                        <a href="javascript:void(0)" class="card-link">14 Templates</a>
-                        <h2 class="templateheading"><a href="javascript:void(0)">Ecommerece</a></h2>
+                        <a href="javascript:void(0)" class="card-link">{{ DB::table('templates')->where('category_id' , $r->id)->count() }} Templates</a>
+                        <h2 class="templateheading"><a href="javascript:void(0)">{{ $r->name }}</a></h2>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
-            @endfor
+            @endforeach
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end blog-area -->

@@ -5,8 +5,8 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TemplatesController;
-
 
 
 // Authentication Routes
@@ -385,3 +385,11 @@ Route::POST('/searchurl', [App\Http\Controllers\AdminController::class, 'searchu
 Route::get('/admin/url-redirection', [App\Http\Controllers\AdminController::class, 'urlredirection']);
 
 Route::POST('/addnewredirect', [App\Http\Controllers\AdminController::class, 'addnewredirect']);
+
+
+
+Route::name('admin.templates.')->prefix('admin/templates')->group(function(){
+    Route::get('allcategories', [AdminController::class, 'alltemplatecategories']);
+    Route::get('addcategory', [AdminController::class, 'addtemplatecategory']);
+    Route::POST('/createcategory', [AdminController::class, 'createtemplatecategory']);
+});

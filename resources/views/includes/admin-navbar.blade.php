@@ -5,10 +5,10 @@
         <!-- LOGO -->
         <a href="{{url('admin/dashboard')}}" class="topnav-logo">
             <span class="topnav-logo-lg">
-                <img src="{{asset('/admin/images/logo.png')}}" alt="" height="56">
+                <img src="{{asset('public/admin/images/logo.png')}}" alt="" height="56">
             </span>
             <span class="topnav-logo-sm">
-                <img src="{{asset('/admin/images/logo.png')}}" alt="" height="56">
+                <img src="{{asset('public/admin/images/logo.png')}}" alt="" height="56">
             </span>
         </a>
 
@@ -67,7 +67,7 @@
         <li class="dropdown notification-list">
             <a  class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <span class="account-user-avatar">
-                    <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" alt="user-image" class="rounded-circle">
+                    <img src="{{ url('public/images') }}/{{ Auth::user()->profileimage }}" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
                     <span class="account-user-name">{{ Auth::user()->name }}</span>
