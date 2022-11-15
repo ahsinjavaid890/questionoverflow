@@ -23,6 +23,7 @@ class CreateTemplatesTable extends Migration
             $table->longtext('metta_tittle')->nullable();
             $table->longtext('metta_description')->nullable();
             $table->longtext('metta_keywords')->nullable();
+            $table->string('zipfile');
             $table->string('status');
             $table->string('order');
             $table->timestamps();

@@ -2299,4 +2299,9 @@ class AdminController extends Controller
         $category->save();
         return redirect()->back()->with('message', 'Category Successfully Inserted');  
     }
+    public function addnewtemplates()
+    {
+        $category = alltemplatecategories::all();
+        return view('admin.templates.addnewtemplate')->with(array('category'=>$category));;
+    }
 }

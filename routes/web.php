@@ -394,4 +394,5 @@ Route::name('admin.templates.')->prefix('admin/templates')->group(function(){
     Route::get('editcategory/{id}', [AdminController::class, 'edittemplatecategory']);
     Route::POST('/updatecategory', [AdminController::class, 'updatetemplatecategory']);
     Route::POST('/createcategory', [AdminController::class, 'createtemplatecategory']);
+    Route::get('addtemplates', [AdminController::class, 'addnewtemplates']);
 });

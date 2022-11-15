@@ -23,6 +23,8 @@
             <ul class="side-nav-second-level" aria-expanded="false">
                 <li><a href="{{url('admin/templates/allcategories')}}">All Categories</a></li>            
                  <li><a href="{{url('admin/templates/addcategory')}}">Add Category</a></li>
+                 <li><a href="{{url('admin/templates/addtemplates')}}">Add Templates</a></li>
+                 <li><a href="{{url('admin/templates/alltemplates')}}">All Templates</a></li>
             </ul>
         </li>
         <li class="side-nav-item">
