@@ -6276,3 +6276,18 @@ div.upvotejs a.star.check.star-on {
 .copyright--desc a {
     color: #6c727c
 }
+.searchinputfortemplate{
+    max-width: 700px;
+    margin: auto;
+}
+.searchinputfortemplate input{
+    height: 60px;
+    padding: 10px 145px 10px 20px;
+    font-size: 18px;
+}
+.templateheading{
+    text-align: center;
+}
+.templateheading a{
+    color: black;
+}

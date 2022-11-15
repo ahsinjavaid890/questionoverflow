@@ -28,6 +28,9 @@
                             <li>
                                 <a href="{{ url('tutorials') }}">Tutorials</a>
                             </li>
+                            <li>
+                                <a href="{{ url('templates') }}">Free Templates</a>
+                            </li>
                         </ul>
                         <!-- end ul -->
                     </nav>

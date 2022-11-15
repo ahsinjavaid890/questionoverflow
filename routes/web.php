@@ -5,7 +5,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\TemplatesController;
 
 
 
@@ -23,6 +23,7 @@ Route::get('profile-settings', [HomeController::class, 'profilesettings']);
 Route::POST('/updateuserprofile', [HomeController::class, 'updateuserprofile']);
 Route::POST('/updateusersecurity', [HomeController::class, 'updateusersecurity']);
 Route::get('/ask', [HomeController::class, 'askquestion']);
+Route::get('/templates', [TemplatesController::class, 'index']);
 
 
 
