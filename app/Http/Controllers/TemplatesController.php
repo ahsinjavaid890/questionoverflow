@@ -23,4 +23,12 @@ class TemplatesController extends Controller
         $templates = templates::where('category_id' , $data->id)->get();
         return view('frontend.templates.category')->with(array('data'=>$data,'templates'=>$templates));
     }
+
+
+    public function templatedetails($category , $template)
+    {
+        $data = templates::where('url' , $template)->first();
+        $category = alltemplatecategories::where('url' , $category)->first();
+        return view('frontend.templates.templatedetails')->with(array('data'=>$data,'category'=>$category));
+    }
 }

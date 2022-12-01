@@ -41,7 +41,7 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Name</label>
+                            <label for="validationCustom01">Template Name</label>
                             <input value="{{ $data->name }}" onkeyup="createslug(this.value)" type="text" class="form-control" name="name" id="validationCustom01"
                                 placeholder="Title" required>
                         </div>
@@ -55,13 +55,17 @@
                             <input type="file" class="form-control" name="image"  >
                         </div>
                         <div class="form-group mb-3">
+                            <label for="validationCustom01">Gallery Images</label>
+                            <input type="file" class="form-control" name="galleryimages[]"  multiple>
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="validationCustom01">Zip File</label>
                             <input type="file" class="form-control" name="zipfile"  >
                         </div>
                                                
                         <div class="form-group mb-3">
                             <label for="validationCustom03">Description</label>
-                            <textarea class="form-control" name="description">{{ $data->description }}</textarea>
+                            <textarea id="summernote-basic" class="form-control" name="description">{{ $data->description }}</textarea>
                         </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
@@ -74,7 +78,7 @@
                 <div class="card-body">
                         <div class="form-group mb-2">
                             <label for="validationCustom03">Meta Title</label>
-                            <input value="{{ $data->meta_title }}" type="text" class="form-control" name="metta_tittle" id="meta_title">
+                            <input value="{{ $data->metta_tittle }}" type="text" class="form-control" name="metta_tittle" id="meta_title">
                         </div>
 
                         <div class="row mb-2">

@@ -25,6 +25,7 @@ Route::POST('/updateusersecurity', [HomeController::class, 'updateusersecurity']
 Route::get('/ask', [HomeController::class, 'askquestion']);
 Route::get('/templates', [TemplatesController::class, 'index']);
 Route::get('/templates/{id}', [TemplatesController::class, 'category']);
+Route::get('/templates/{id}/{template}', [TemplatesController::class, 'templatedetails']);
 
 
 

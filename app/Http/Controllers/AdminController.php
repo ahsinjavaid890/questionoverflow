@@ -2317,6 +2317,7 @@ class AdminController extends Controller
     }
     public function createtemplate(Request $request)
     {
+        
         $add = new templates;
         $add->user_id = Auth::user()->id;
         $add->category_id = $request->category_id;
@@ -2330,6 +2331,14 @@ class AdminController extends Controller
         $add->metta_keywords = $request->metta_keywords;            
         $add->status = $request->status;
         $add->order = $request->order;
+        if($request->galleryimages)
+        {
+            foreach ($request->galleryimages as $r) 
+            {
+                $saveimages[] = Cmf::sendimagetodirectory($r);
+            }
+            $add->galleryimages = implode(',', $saveimages);
+        }
         $add->save();
         return redirect()->back()->with('message', 'Template Successfully Inserted');   
     }
@@ -2354,7 +2363,19 @@ class AdminController extends Controller
         $add->metta_keywords = $request->metta_keywords;            
         $add->status = $request->status;
         $add->order = $request->order;
+        if($request->galleryimages)
+        {
+            foreach ($request->galleryimages as $r) 
+            {
+                $saveimages[] = Cmf::sendimagetodirectory($r);
+            }
+            $add->galleryimages = implode(',', $saveimages);
+        }
         $add->save();
+
+
+        
+
         return redirect()->back()->with('message', 'Template Successfully Updated');   
     }
 }

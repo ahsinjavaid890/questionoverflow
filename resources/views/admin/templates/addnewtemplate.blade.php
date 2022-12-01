@@ -40,7 +40,7 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Name</label>
+                            <label for="validationCustom01">Template Name</label>
                             <input onkeyup="createslug(this.value)" type="text" class="form-control" name="name" id="validationCustom01"
                                 placeholder="Title" required>
                         </div>
@@ -50,8 +50,12 @@
                                  <small id="slugerror" class="mt-1 text-danger"></small>
                         </div> 
                         <div class="form-group mb-3">
-                            <label for="validationCustom01">Category Image</label>
+                            <label for="validationCustom01">Template Image</label>
                             <input type="file" class="form-control" name="image"  required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="validationCustom01">Gallery Images</label>
+                            <input type="file" class="form-control" name="galleryimages[]"  multiple>
                         </div>
                         <div class="form-group mb-3">
                             <label for="validationCustom01">Zip File</label>
@@ -60,7 +64,7 @@
                                                
                         <div class="form-group mb-3">
                             <label for="validationCustom03">Description</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea id="summernote-basic" class="form-control" name="description"></textarea>
                         </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->

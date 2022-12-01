@@ -47,7 +47,7 @@
                                                
                         <div class="form-group mb-3">
                             <label for="validationCustom03">Description</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea id="summernote-basic" class="form-control" name="description"></textarea>
                         </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->

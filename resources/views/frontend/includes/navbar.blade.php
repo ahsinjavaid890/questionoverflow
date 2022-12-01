@@ -29,7 +29,7 @@
                                 <a href="{{ url('tutorials') }}">Tutorials</a>
                             </li>
                             <li>
-                                <a href="{{ url('templates') }}">Free Templates</a>
+                                <a href="{{ url('templates') }}">Templates</a>
                             </li>
                         </ul>
                         <!-- end ul -->
@@ -101,7 +101,7 @@
                                     <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
                                         <div class="media-img media-img-xs flex-shrink-0 rounded-full mr-2">
                                             @if(Auth::user()->profileimage)
-                                            <img src="{{ url('images') }}/{{ Auth::user()->profileimage }}" alt="{{ Auth::user()->name }}" class="rounded-full">
+                                            <img src="{{ url('public/images') }}/{{ Auth::user()->profileimage }}" alt="{{ Auth::user()->name }}" class="rounded-full">
                                             @else
                                             <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Avatar | Question Overflow">
                                             @endif
