@@ -18,7 +18,13 @@ class SignController extends Controller
     }
     public function signin()
     {
-        return view('frontend.login');
+        if(Auth::check())
+        {
+            return redirect()->route('dashboard');
+        }else{
+            return view('frontend.auth.login');
+        }
+        
     }
     public function redirectToGoogle()
     {

@@ -51,6 +51,10 @@
                                  <small id="slugerror" class="mt-1 text-danger"></small>
                         </div> 
                         <div class="form-group mb-3">
+                            <label for="validationCustom01">Preview URL</label>
+                            <input type="text" value="{{ $data->previewurl }}" class="form-control" name="previewurl"  required>
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="validationCustom01">Template Image</label>
                             <input type="file" class="form-control" name="image"  >
                         </div>

@@ -7,7 +7,19 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\SignController;
 
+
+Route::get('/updateapp', function()
+{
+    \Artisan::call('dump-autoload');
+    echo 'dump-autoload complete';
+});
+Route::get('/clear', function() {
+      Artisan::call('cache:clear');
+      Artisan::call('config:clear');
+      return "Cache is cleared";
+});
 
 // Authentication Routes
 Route::POST('customerlogin', [LoginController::class, 'customerlogin']);
@@ -40,18 +52,12 @@ Route::POST('createquestioncoment', [SiteController::class, 'createquestioncomen
 
 
 
-Route::get('/updateapp', function()
-{
-    \Artisan::call('dump-autoload');
-    echo 'dump-autoload complete';
-});
-Route::get('/clear', function() {
-      Artisan::call('cache:clear');
-      Artisan::call('config:clear');
-      return "Cache is cleared";
-});
+
 // Auth
-Route::get('/signin', [App\Http\Controllers\SignController::class, 'signin'])->name('signin');
+Route::get('/login', [SignController::class, 'signin'])->name('signin');
+
+
+
 Route::get('/signup', [App\Http\Controllers\SignController::class, 'signup'])->name('signup');
 Route::get('auth/google', [App\Http\Controllers\SignController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\SignController::class, 'handleGoogleCallback']);

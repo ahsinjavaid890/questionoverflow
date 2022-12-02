@@ -2331,6 +2331,7 @@ class AdminController extends Controller
         $add->metta_keywords = $request->metta_keywords;            
         $add->status = $request->status;
         $add->order = $request->order;
+        $add->previewurl = $request->previewurl;
         if($request->galleryimages)
         {
             foreach ($request->galleryimages as $r) 
@@ -2362,6 +2363,7 @@ class AdminController extends Controller
         $add->metta_description = $request->metta_description;
         $add->metta_keywords = $request->metta_keywords;            
         $add->status = $request->status;
+        $add->previewurl = $request->previewurl;
         $add->order = $request->order;
         if($request->galleryimages)
         {
