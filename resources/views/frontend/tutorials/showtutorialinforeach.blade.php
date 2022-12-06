@@ -13,7 +13,7 @@
                <div class="comments pt-3">
                  <p class="d-inline"><span class="codex">By: Question Overflow </span><b>|</b> <span class="codex"> In: <a href="{{ url('tutorials') }}/{{$r->categoryurl}}" class="link">{{ $r->categoryname }}</a></span> <b>|</b></p>
                  <span class="codex">Last Updated: {{ Cmf::create_time_ago($r->updated_at) }} </span>
-                 <p class="card-text text-dark text-justify paragraph pt-2">{!! strip_tags($r->description) !!}</p>
+                 <p class="card-text text-dark text-justify paragraph pt-2">{!! \Illuminate\Support\Str::limit(strip_tags($r->description), 300, $end='...') !!}</p>
                </div>
                <div class="d-flex justify-content-between py-4">
                   <div>
