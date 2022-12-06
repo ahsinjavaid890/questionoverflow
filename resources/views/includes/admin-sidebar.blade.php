@@ -28,6 +28,18 @@
             </ul>
         </li>
         <li class="side-nav-item">
+            <a href="javasript::void(0)" class="side-nav-link">Tutorials
+                <i class=""></i>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="side-nav-second-level" aria-expanded="false">
+                <li><a href="{{url('admin/tutorials/allcategories')}}">All Categories</a></li>            
+                 <li><a href="{{url('admin/tutorials/addcategory')}}">Add Category</a></li>
+                 <li><a href="{{url('admin/tutorials/addnewtutorial')}}">Add Tutorials</a></li>
+                 <li><a href="{{url('admin/tutorials/alltutorials')}}">All Tutorials</a></li>
+            </ul>
+        </li>
+        <li class="side-nav-item">
             <a href="javasript::void(0)" class="side-nav-link">Categories
                 <i class=""></i>
                 <span class="menu-arrow"></span>

@@ -8,7 +8,7 @@ use App\Mail\Offers;
 use App\Models\blogs;
 use App\Models\expertrequest;
 use App\Models\blogcategories;
-use App\Models\modules;
+use App\Models\tutorialcategories;
 use App\Models\onlyanswers;
 use App\Models\testimonials;
 use App\Models\Abusivewords;
@@ -19,7 +19,7 @@ use App\Models\dailyvisitors;
 use App\Models\categories;
 use App\Models\answerquestions;
 use App\Models\questioncoments;
-use App\Models\urlredirection;
+use App\Models\tutorials;
 
 use App\Exports\QuestionExports;
 use App\Models\userfile;
@@ -56,7 +56,16 @@ class SiteController extends Controller
    }
    public function alltutorials()
    {
-       return view('frontend.tutorials.all');
+       $data = tutorials::select('tutorials.name','tutorials.id','tutorials.url as tutorialurl','tutorials.description','tutorials.image','tutorials.created_at','tutorials.updated_at','tutorialcategories.url as categoryurl','tutorialcategories.name as categoryname')->leftJoin('tutorialcategories','tutorials.category_id','=','tutorialcategories.id')->orderby('tutorials.created_at' , 'desc')->paginate(10);
+       $categories = tutorialcategories::where('status' , 'Active')->whereNotNull('image')->orderby('created_at' , 'desc')->paginate(10);
+       return view('frontend.tutorials.all')->with(array('data'=>$data,'categories'=>$categories));
+   }
+   public function tutorialsbycategory($url)
+   {
+       $data = tutorials::select('tutorials.name','tutorials.id','tutorials.url as tutorialurl','tutorials.description','tutorials.image','tutorials.created_at','tutorials.updated_at','tutorialcategories.url as categoryurl','tutorialcategories.name as categoryname')->leftJoin('tutorialcategories','tutorials.category_id','=','tutorialcategories.id')->where('tutorialcategories.url' , $url)->orderby('tutorials.created_at' , 'desc')->paginate(10);
+       $categories = tutorialcategories::where('status' , 'Active')->whereNotNull('image')->orderby('created_at' , 'desc')->paginate(10);
+       $category = tutorialcategories::where('url' , $url)->first();
+       return view('frontend.tutorials.allbycateogyr')->with(array('data'=>$data,'categories'=>$categories,'category'=>$category));
    }
    public function allsubjects()
    {

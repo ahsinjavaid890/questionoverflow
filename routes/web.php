@@ -38,6 +38,8 @@ Route::get('/ask', [HomeController::class, 'askquestion']);
 Route::get('/templates', [TemplatesController::class, 'index']);
 Route::get('/templates/{id}', [TemplatesController::class, 'category']);
 Route::get('/templates/{id}/{template}', [TemplatesController::class, 'templatedetails']);
+Route::get('tutorials', [SiteController::class, 'alltutorials']);
+Route::get('tutorials/{id}', [SiteController::class, 'tutorialsbycategory']);
 
 
 
@@ -46,7 +48,6 @@ Route::get('/templates/{id}/{template}', [TemplatesController::class, 'templated
 // Website routes
 Route::get('/', [SiteController::class, 'index'])->name('home');
 Route::get('allsubjects', [SiteController::class, 'allsubjects']);
-Route::get('tutorials', [SiteController::class, 'alltutorials']);
 Route::get('question/{id}', [SiteController::class, 'singlequestion']);
 Route::POST('createquestioncoment', [SiteController::class, 'createquestioncoment']);
 
@@ -269,13 +270,8 @@ Route::get('/admin/view/message/{id}', [App\Http\Controllers\AdminController::cl
 Route::get('/deletecontactus/{id}', [App\Http\Controllers\AdminController::class, 'deletecontactus']);
 
 
-// Testimonial
-Route::get('/admin/alltestimonials', [App\Http\Controllers\AdminController::class, 'alltestimonials']);
-Route::get('/admin/addnewtestimonials', [App\Http\Controllers\AdminController::class, 'addnewtestimonials']);
-Route::POST('/createtestimonial',[App\Http\Controllers\AdminController::class, 'createtestimonial']);
-Route::get('/deletetestimonial/{id}', [App\Http\Controllers\AdminController::class, 'deletetestimonial']);
-Route::get('/admin/edittestimonial/{id}', [App\Http\Controllers\AdminController::class, 'edittestimonial']);
-Route::POST('/updatetestimonials',[App\Http\Controllers\AdminController::class, 'updatetestimonials']);
+// Tutorials
+
 
 
 // CMS
@@ -407,4 +403,20 @@ Route::name('admin.templates.')->prefix('admin/templates')->group(function(){
     Route::get('alltemplates', [AdminController::class, 'alltemplates']);
     Route::get('edittemplate/{id}', [AdminController::class, 'edittemplate']);
     Route::POST('/updatetemplate', [AdminController::class, 'updatetemplate']);
+});
+
+
+
+Route::name('admin.tutorials.')->prefix('admin/tutorials')->group(function(){
+    Route::get('allcategories', [AdminController::class, 'alltutorialscategories']);
+    Route::get('editcategory/{id}', [AdminController::class, 'edittutorialcategory']);
+    Route::POST('/updatecategory', [AdminController::class, 'updatetutorialscategory']);
+    Route::POST('createcategory', [AdminController::class, 'createtutorialcategory']);
+    Route::get('addcategory', [AdminController::class, 'addtutorialscategory']);
+    Route::get('alltutorials', [AdminController::class, 'alltutorials']);
+    Route::get('addnewtutorial', [AdminController::class, 'addnewtutorial']);
+    Route::POST('createTutorial',[AdminController::class, 'createtutorial']);
+    Route::get('deletetutorial/{id}', [AdminController::class, 'deletetutorial']);
+    Route::get('edittutorial/{id}', [AdminController::class, 'edittutorial']);
+    Route::POST('updatetutorial',[AdminController::class, 'updatetutorial']);
 });

@@ -7,7 +7,8 @@ use App\Models\categories;
 use App\Models\blogs;
 use App\Models\user;
 use App\Models\onlyanswers;
-use App\Models\testimonials;
+use App\Models\tutorials;
+use App\Models\tutorialcategories;
 use App\Models\cmshomepages;
 use App\Models\userroles;
 use App\Models\newsletters;
@@ -2380,4 +2381,130 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Template Successfully Updated');   
     }
+
+
+
+
+
+
+
+
+
+
+
+    public function alltutorialscategories(Request $request)
+    {
+        $data = tutorialcategories::all();
+        return view('admin.tutorials.categories')->with(array('data'=>$data));
+    }
+    public function addtutorialscategory()
+    {
+        return view('admin.tutorials.addcategory');
+    }
+    public function edittutorialcategory($id)
+    {
+        $data = tutorialcategories::find($id);
+        return view('admin.tutorials.editcategory')->with(array('data'=>$data));
+    }
+    public function createtutorialcategory(Request $request)
+    {
+        $category = new tutorialcategories;
+        $category->name = $request->name;
+        $category->url = $request->slug;
+        if($request->image)
+        {
+            $category->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $category->description = $request->description;
+        $category->metta_tittle = $request->metta_tittle;
+        $category->metta_description = $request->metta_description;
+        $category->metta_keywords = $request->metta_keywords;            
+        $category->status = $request->status;
+        $category->order =1;
+        $category->save();
+        return redirect()->back()->with('message', 'Category Successfully Updated');   
+    }
+    public function updatetutorialscategory(Request $request)
+    {
+        $category = tutorialcategories::find($request->id);
+        $category->name = $request->name;
+        $category->url = $request->slug;
+        if($request->image)
+        {
+            $category->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $category->description = $request->description;
+        $category->metta_tittle = $request->metta_tittle;
+        $category->metta_description = $request->metta_description;
+        $category->metta_keywords = $request->metta_keywords;            
+        $category->status = $request->status;
+        $category->order = $request->order;
+        $category->save();
+        return redirect()->back()->with('message', 'Category Successfully Inserted');  
+    }
+    
+    
+    public function addnewtutorial()
+    {
+        $category = tutorialcategories::all();
+        return view('admin.tutorials.addnewtutorial')->with(array('category'=>$category));;
+    }
+    public function alltutorials()
+    {
+        $data = tutorials::all();
+        return view('admin.tutorials.alltutorials')->with(array('data'=>$data));
+    }
+    public function edittutorial($id)
+    {
+        $data = tutorials::find($id);
+        $category = tutorialcategories::all();
+        return view('admin.tutorials.edittutorial')->with(array('data'=>$data,'category'=>$category));
+    }
+    public function createtutorial(Request $request)
+    {
+        
+        $add = new tutorials;
+        $add->user_id = Auth::user()->id;
+        $add->category_id = $request->category_id;
+        $add->name = $request->name;
+        $add->url = $request->slug;
+        $add->image = Cmf::sendimagetodirectory($request->image);
+        $add->description = $request->description;
+        $add->metta_tittle = $request->metta_tittle;
+        $add->metta_description = $request->metta_description;
+        $add->metta_keywords = $request->metta_keywords;            
+        $add->status = $request->status;
+        $add->order = 1;
+        $add->save();
+        return redirect()->back()->with('message', 'Tutorial Successfully Inserted');   
+    }
+    public function updatetutorial(Request $request)
+    {
+        $add = tutorials::find($request->id);
+        $add->user_id = Auth::user()->id;
+        $add->category_id = $request->category_id;
+        $add->name = $request->name;
+        $add->url = $request->slug;
+        if($request->image)
+        {
+            $add->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $add->description = $request->description;
+        $add->metta_tittle = $request->metta_tittle;
+        $add->metta_description = $request->metta_description;
+        $add->metta_keywords = $request->metta_keywords;            
+        $add->status = $request->status;
+        $add->order = $request->order;
+        $add->save();
+        return redirect()->back()->with('message', 'Tutorial Successfully Updated');   
+    }
+
+
+
+
+
+
+
+
+
 }
