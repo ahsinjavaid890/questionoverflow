@@ -38,6 +38,7 @@
         <div id="back-to-top" data-toggle="tooltip" data-placement="top" title="Return to top">
             <i class="la la-arrow-up"></i>
         </div>
+       
         <script src="{{ url('public/front/js/jquery-3.4.1.min.js') }}"></script>
         <script src="{{ url('public/front/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ url('public/front/js/owl.carousel.min.js') }}"></script>

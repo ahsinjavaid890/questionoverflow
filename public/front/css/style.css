@@ -10,7 +10,7 @@ ul {
     list-style-type: none
 }
 
-.btn-link:focus,
+.btn-link:focus, 
 .btn-link:hover,
 a:focus,
 a:hover {
@@ -6014,7 +6014,54 @@ div.upvotejs a.star.check.star-on {
 .hero-list-bg {
     background-image: url(../images/anonymousHeroBackground.svg)
 }
+/* /////// tutorials-card/////// */
+.tutorials-card{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.tutorials-card .heading a{
+    font-size: 25px ;
+}
+.tutorials-card .heading{
+    line-height: 30px ;
+}
+.tutorials-card .heading a:hover{
+    color: #2d86eb !important;
+}
+.tutorials-card .paragraph {
+    font-size: 15px;
+    line-height: 20px;
+}
+.tutorials-card .codex:hover{
+    color: #2d86eb;
+}
+.tutorials-card .link:hover{
+    border-bottom: 1px solid ;
+}
+.tutorials-card .read-full{
+    border: 2px solid #2d86eb;
+}
+.tutorials-card .read-full:hover{
+    background-color: #2d86eb;
+    color: white !important;
+}
+.subscribe{
+    background-color: #2d86eb;
+}
+.social-icon a:hover{
+    background-color: black !important;
+}
 
+.trending li{
+    line-height: 20px;
+    font-size: 15px;
+}
+.trending li a{
+    color: black;
+}
+.trending li a:hover{
+    color: #2d86eb !important;
+    border-bottom: 1px solid #2d86eb;
+}
 @media only screen and (min-width:768px) and (max-width:991px) {
     .hero-btn-box.text-right {
         text-align: left !important
@@ -6030,6 +6077,15 @@ div.upvotejs a.star.check.star-on {
 @media only screen and (min-width:320px) and (max-width:479px) {
     .hero-btn-box.text-right {
         text-align: left !important
+    }
+    .tutorials-card .heading a {
+        font-size: 15px !important;
+    }
+    .tutorials-card .heading {
+        line-height: 18px !important;
+    }
+    .tutorials-card .codex{
+        font-size: 12px ;
     }
 }
 
@@ -6048,6 +6104,7 @@ div.upvotejs a.star.check.star-on {
     .search-form .form-group {
         margin-right: 0 !important
     }
+   
 }
 
 .search-form .km-select-wrap {

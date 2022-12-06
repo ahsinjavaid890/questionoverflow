@@ -13,7 +13,375 @@
 <meta property="og:locale" content="it_IT">
 @endsection
 @section('content')
-
-
-
+<section class="hero-area pattern-bg-2 bg-white shadow-sm overflow-hidden pt-50px pb-50px">
+    <span class="stroke-shape stroke-shape-1"></span>
+    <span class="stroke-shape stroke-shape-2"></span>
+    <span class="stroke-shape stroke-shape-3"></span>
+    <span class="stroke-shape stroke-shape-4"></span>
+    <span class="stroke-shape stroke-shape-5"></span>
+    <span class="stroke-shape stroke-shape-6"></span>
+    <div class="container">
+        <div class="hero-content text-center">
+            <h2 class="section-title pb-3">All Tutorials</h2>
+            <div class="searchinputfortemplate">
+                <input type="text" placeholder="Search Free Tutorials..." class="form-control" name="">
+            </div>
+        </div><!-- end hero-content -->
+    </div><!-- end container -->
+</section>
+<div class="container">
+<div class="row  pb-5 tutorials py-4">
+  <div class="col-md-9 pb-2 ">
+      <div class="row">
+             <div class="col-md-12">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-1.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-2.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-3.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div> 
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-4.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-5.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-6.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-7.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-8.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-3">
+              <div class="card bg-white border-0 tutorials-card   ">
+                  <div class="card-body pl-2 pt-3">
+                    <div class="row">
+                        <div class="col-md-5 pr-0">
+                        <img src="public/front/images/tutorials-9.png" class="w-100 ">
+                        </div>
+                        <div class="col-md-7 pt-2">
+                          <h5 class="heading  ">
+                            <a href="#" class="text-dark font-weight-bold">DataTables Server-side Processing with Custom Links and Buttons using PHP
+                            </a>
+                           </h5>
+                           <div class="comments pt-3">
+                             <p class="d-inline"><span class="codex">By: CodexWorld </span><b>|</b> <span class="codex"> In: <a href="#" class="link">PHP</a></span> <b>|</b></p>
+                             <span class="codex">Last Updated: Dec 05,2022 </span>
+                           </div>
+                        </div>
+                    </div>
+                    <p class="card-text text-dark text-justify paragraph pt-2">Google reCAPTCHA v3 enables the protection of web forms or web pages from getting spam. You can verify to check if an interaction is legitimate without any user interaction using reCAPTCHA v3. The user doesn’t require to do any activity to confirm that they are not a robot. The reCAPTCHA API will detect fraud access and stop bots to prevent automated attacks on the website. In this tutorial, we will show you how to integrate Google reCAPTCHA v3 in HTML form with PHP.</p>
+                   <div class="d-flex justify-content-between py-4">
+                      <div>
+                        <a href="#" class="link font-weight-bold">0 comments</a>
+                      </div>
+                      <div>
+                       <a href="#" class="text-primary font-weight-bold py-2 px-1 read-full rounded">Read Full <i class="la la-arrow-right ml-1"></i></a>
+                      </div>
+                   </div>
+                  </div>
+              </div>
+            </div>
+      </div>
+  </div>
+    <!-- //// col 3 //// -->
+    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12 subscribe py-4">
+                        <h6 class="text-white"> Subscribe for your question answer's</h6>
+                        <div class="py-2">
+                        <input type="email" class="form-control rounded-0" id="" aria-describedby="emailHelp" placeholder="Enter email">
+                        <a href="#" class="btn btn-block btn-dark rounded-0 mt-2 text-white font-weight-bold">SUBSCRIBE</a>
+                        </div>
+                        <div class="social-icon py-2 text-center">
+                            <a href="#" class="border   pl-2 pr-1 py-1 mr-1"><i class="la la-facebook mr-1 text-white"></i></a>
+                            <a href="#"  class="border pl-2 pr-2 py-1 mr-1"><i class="la la-twitter  text-white"></i></a>
+                            <a href="#"  class="border pl-2 pr-2 py-1 mr-1"><i class="la la-linkedin  text-white"></i></a>
+                            <a href="#"  class="border pl-2 pr-2 py-1 mr-1"><i class="la la-instagram  text-white"></i></a>
+                            <a href="#"  class="border pl-2 pr-2 py-1 mr-1"><i class="la la-whatsapp  text-white"></i></a>
+                            <a href="#"  class="border pl-2 pr-2 py-1 "><i class="la la-skype  text-white "></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 py-4 px-0  ">
+                        <h5 class="bg-success text-white p-2  text-uppercase mt-1">Our Trending Topics</h5>
+                        <div class="d-flex justify-content-between  bg-light">
+                        <div>
+                        <ul class="py-4 px-3 trending">
+                            <li class="border-bottom py-2"><a href="#">HTML&CSS</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Bootstrap</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >JavaScript</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Jquery</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">PHP</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Laravel</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Web Development</a></li>
+                        </ul>
+                        </div>
+                        <div>
+                        <ul class="py-4 px-3 trending">
+                        <li class="border-bottom py-2"><a href="#">C++</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Python</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >Java</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Node.js</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">C#</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">ASP.NET</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Mob Development</a></li>
+                        </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12    px-0">
+                        <h5 class="bg-success text-white p-2  text-uppercase ">Our Trending Tutorials</h5>
+                        <ul class="py-4 px-3 trending bg-light">
+                            <li class="border-bottom py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, blanditiis!</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >Lorem ipsum dolor sit amet.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit, amet consectetur adipisicing.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet consectetur.</a></li>
+                            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 px-0 pt-4 ">
+                    <h5 class="bg-success text-white p-2  text-uppercase mb-4">Languages</h5>
+                    <a href="#"><img src="public/front/images/laravel-1.jpg" class="w-100  "></a>
+                    <a href="#"><img src="public/front/images/php.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/java.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/kotlin.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/html-css.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/bootstrap.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/jquery.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/javascript.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/c-sharp.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/python.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/asp.net.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/c-plus.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/android.jpg" class="w-100 mt-3"></a>
+                    <a href="#"><img src="public/front/images/ios.jpg" class="w-100 mt-3"></a>
+                    </div>
+                </div>
+            </div>
+</div>
+</div>
 @endsection
