@@ -65,7 +65,7 @@
                         <div class="d-flex justify-content-between  bg-light">
                           @foreach($categories as $r)
                             <div>
-                            <ul class="py-4 px-3 trending">
+                            <ul class="py-4 px-3  trending">
                                 <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
                             </ul>
                             </div>

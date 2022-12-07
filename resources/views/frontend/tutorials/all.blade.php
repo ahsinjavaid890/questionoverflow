@@ -61,14 +61,24 @@
           </div>
           <div class="col-md-12 py-4 px-0  ">
               <h5 class="bg-success text-white p-2  text-uppercase mt-1">Our Trending Topics</h5>
-              <div class="d-flex justify-content-between  bg-light">
-                @foreach($categories as $r)
+              <div class="   bg-light">
                   <div>
+                   
+                    
                   <ul class="py-4 px-3 trending">
-                      <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
-                  </ul>
+                  @foreach($categories as $r)
+                  <div class="row">
+                    <div class="col-md-6">
+                       <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
+                    </div>
+                    <div class="col-md-6">
+                       <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
+                    </div>
+                    </div>
+                      
+                      @endforeach
+                    </ul>
                   </div>
-                @endforeach
               </div>
           </div>
           <div class="col-md-12    px-0">

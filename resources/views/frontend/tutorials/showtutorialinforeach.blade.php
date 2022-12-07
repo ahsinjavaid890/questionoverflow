@@ -15,11 +15,11 @@
                  <span class="codex">Last Updated: {{ Cmf::create_time_ago($r->updated_at) }} </span>
                  <p class="card-text text-dark text-justify paragraph pt-2">{!! \Illuminate\Support\Str::limit(strip_tags($r->description), 300, $end='...') !!}</p>
                </div>
-               <div class="d-flex justify-content-between py-4">
-                  <div>
+               <div class="d-flex justify-content-between pt-5">
+                  <div class="pt-4">
                     <a href="#" class="link font-weight-bold">0 comments</a>
                   </div>
-                  <div>
+                  <div class="pt-3">
                    <a href="{{ url('tutorials') }}/{{$r->categoryurl}}/{{ $r->tutorialurl }}" class="btn theme-btn theme-btn-outline mr-2">Read Full <i class="la la-arrow-right ml-1"></i></a>
                   </div>
                </div>
