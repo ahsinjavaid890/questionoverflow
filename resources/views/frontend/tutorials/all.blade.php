@@ -66,17 +66,13 @@
                    
                     
                   <ul class="py-4 px-3 trending">
-                  @foreach($categories as $r)
                   <div class="row">
+                  @foreach($categories as $r)
                     <div class="col-md-6">
                        <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
                     </div>
-                    <div class="col-md-6">
-                       <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{$r->url}}">{{ $r->name }}</a></li>
-                    </div>
-                    </div>
-                      
                       @endforeach
+                      </div>
                     </ul>
                   </div>
               </div>
