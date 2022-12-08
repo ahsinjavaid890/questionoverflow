@@ -34,15 +34,14 @@ class SiteController extends Controller
     public function currenturl()
     {
        return $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
     }
     public function getlastword($get)
     {
         preg_match("/[^\/]+$/", $get, $matches);
         return $matches[0]; // test
     }
-   public function index()
-   {
+    public function index()
+    {
         if(Auth::check()){
             $isadmin = Auth::user()->is_admin;
             if($isadmin == 1)
@@ -53,27 +52,34 @@ class SiteController extends Controller
         $questions = answerquestions::where('delete_status' , 'Active')->where('visible_status'  ,'Published')->limit(20)->orderby('id' , 'desc')->get();
         $categories = categories::where('status' , 'Active')->limit(15)->get();
         return view('frontend.homepage.index')->with(array('categories'=>$categories,'questions'=>$questions));
-   }
-   public function alltutorials()
-   {
+    }
+    public function alltutorials()
+    {
        $data = tutorials::select('tutorials.name','tutorials.id','tutorials.url as tutorialurl','tutorials.description','tutorials.image','tutorials.created_at','tutorials.updated_at','tutorialcategories.url as categoryurl','tutorialcategories.name as categoryname')->leftJoin('tutorialcategories','tutorials.category_id','=','tutorialcategories.id')->orderby('tutorials.created_at' , 'desc')->paginate(10);
        $categories = tutorialcategories::where('status' , 'Active')->whereNotNull('image')->orderby('created_at' , 'desc')->paginate(10);
        return view('frontend.tutorials.all')->with(array('data'=>$data,'categories'=>$categories));
-   }
-   public function tutorialsbycategory($url)
-   {
+    }
+    public function tutorialsbycategory($url)
+    {
        $data = tutorials::select('tutorials.name','tutorials.id','tutorials.url as tutorialurl','tutorials.description','tutorials.image','tutorials.created_at','tutorials.updated_at','tutorialcategories.url as categoryurl','tutorialcategories.name as categoryname')->leftJoin('tutorialcategories','tutorials.category_id','=','tutorialcategories.id')->where('tutorialcategories.url' , $url)->orderby('tutorials.created_at' , 'desc')->paginate(10);
        $categories = tutorialcategories::where('status' , 'Active')->whereNotNull('image')->orderby('created_at' , 'desc')->paginate(10);
        $category = tutorialcategories::where('url' , $url)->first();
        return view('frontend.tutorials.allbycateogyr')->with(array('data'=>$data,'categories'=>$categories,'category'=>$category));
-   }
-   public function allsubjects()
-   {
+    }
+    public function tutorialsdetails($category,$tutorialdetail)
+    {
+        $data = tutorials::select('tutorials.name','tutorials.id','tutorials.url as tutorialurl','tutorials.description','tutorials.image','tutorials.created_at','tutorials.updated_at','tutorialcategories.url as categoryurl','tutorialcategories.name as categoryname')->leftJoin('tutorialcategories','tutorials.category_id','=','tutorialcategories.id')->orderby('tutorials.created_at' , 'desc')->where('tutorials.url' , $tutorialdetail)->first();
+        $category = tutorialcategories::where('url' , $category)->first();
+        $categories = tutorialcategories::where('status' , 'Active')->whereNotNull('image')->orderby('created_at' , 'desc')->paginate(10);
+        return view('frontend.tutorials.tutorialdetail')->with(array('categories'=>$categories,'data'=>$data,'category'=>$category));
+    }
+    public function allsubjects()
+    {
        $data = categories::where('status' , 'Active')->paginate(20);
        return view('frontend.subjects.all')->with(array('data'=>$data));
-   }
-   public function singlequestion($id)
-   {
+    }
+    public function singlequestion($id)
+    {
       setcookie('redirecturl', $this->currenturl(), time() + (86400 * 30), "/");
       $data = answerquestions::where('question_url' , $id)->get()->first();
 
@@ -81,7 +87,6 @@ class SiteController extends Controller
       {
          $answers = onlyanswers::where('delete_status' , 'Active')->where('visible_status' , 'Published')->where('questionid' , $data->id)->orderby('id' , 'desc')->paginate(Cmf::site_settings('frontenddatashowlimit'));
           $relatedquestion = answerquestions::where('question_subject' , $data->question_subject)->inRandomOrder()->limit(8)->get();
-
           if($data->delete_status != 'Delete')
           {
             if($data->visible_status == 'Published')
@@ -97,9 +102,9 @@ class SiteController extends Controller
       }else{
         return response()->view('errors.404', [], 404);
       }
-   }
-   public function createquestioncoment(Request $request)
-   {
+    }
+    public function createquestioncoment(Request $request)
+    {
        $newcoment = new questioncoments();
        $newcoment->name = $request->name;
        $newcoment->email = $request->email;
@@ -107,10 +112,9 @@ class SiteController extends Controller
        $newcoment->question_id = $request->id;
        $newcoment->save();
        return redirect()->back()->with('message', 'Coment Added Successfully');
-   }
-   
-   public function checkredirection()
-   {
+    }
+    public function checkredirection()
+    {
         $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $data = urlredirection::where('from' , $actual_link)->get()->first();
         if(!empty($data))

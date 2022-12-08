@@ -40,6 +40,7 @@ Route::get('/templates/{id}', [TemplatesController::class, 'category']);
 Route::get('/templates/{id}/{template}', [TemplatesController::class, 'templatedetails']);
 Route::get('tutorials', [SiteController::class, 'alltutorials']);
 Route::get('tutorials/{id}', [SiteController::class, 'tutorialsbycategory']);
+Route::get('tutorials/{id}/{two}', [SiteController::class, 'tutorialsdetails']);
 
 
 
