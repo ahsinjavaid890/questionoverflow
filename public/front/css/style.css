@@ -6031,7 +6031,7 @@ div.upvotejs a.star.check.star-on {
     font-size: 15px;
     line-height: 20px;
 }
-.tutorials-card .codex:hover{
+.codex:hover{
     color: #2d86eb;
 }
 .tutorials-card .link:hover{
@@ -6062,10 +6062,55 @@ div.upvotejs a.star.check.star-on {
     color: #2d86eb !important;
     border-bottom: 1px solid #2d86eb;
 }
-.read{
-    position: relative ;
-    top: 60px;
+/* /////////// detail page/////// */
+
+.benefit{
+    font-size: 18px;
 }
+.detail-content{
+    font-size: 15px;
+    line-height: 20px;
+    text-align: justify;
+}
+.php-syntax{
+    background-color: #f2f3f4;
+}
+.scrollbar
+{
+	height: 400px;
+    background-color: #f2f3f4;
+	overflow-y: scroll;
+}
+#style-2::-webkit-scrollbar-track
+{
+	background-color: #eee;
+}
+#style-2::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #f2f3f4;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #2d86eb;
+}
+.users{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.users-data .user-name a{
+    color: black;
+    font-size: 20px;
+}
+.users-data .user-name a:hover{
+    color: #2d86eb;
+}
+.leave-comment button{
+    background-color: #2d86eb;
+    color: white;
+}
+
 @media only screen and (min-width:768px) and (max-width:991px) {
     .hero-btn-box.text-right {
         text-align: left !important
@@ -6089,7 +6134,10 @@ div.upvotejs a.star.check.star-on {
         line-height: 18px !important;
     }
     .tutorials-card .codex{
-        font-size: 12px ;
+        font-size: 11px ;
+    }
+    .sidebar-tutorial{
+        padding-left: 15px;
     }
 }
 
