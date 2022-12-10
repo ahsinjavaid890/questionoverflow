@@ -18,25 +18,22 @@
 <div class="container-fluid">
     <div class="row ">
     	<div class="col-md-9 pb-3">
-          <div class="card bg-white border-0 tutorials-card ">
-             <div class="card-body pl-2 pt-3">
-                  <div class=" pr-0">
-                    <img src="http://localhost/questionoverflow/public/images/2123355862.png" class="w-100 ">
+          <div class="card bg-white border-0  ">
+             <div class="card-body p-0">
+                  <div class=" ">
+                    <img src="{{ url('public/images') }}/{{ $data->image }}" class="w-100 ">
                   </div>
                   <div class=" ">
-                    <h4 class="heading pt-2 ">
-                     <a href="http://localhost/questionoverflow/tutorials/php/chunk-file-upload-with-javascript-using-php" class="text-dark font-weight-bold">Chunk File Upload with JavaScript using PHP
-                    </a>
+                    <h4 class="heading pt-2 font-weight-bold ">
+                    {{ $data->name }}
                    </h4>
                    <div class="comments pt-2">
                      <p class="d-inline"><span class="codex">By: Question Overflow </span><b>|</b> <span class="codex"> In: <a href="http://localhost/questionoverflow/tutorials/php" class="link">PHP</a></span> <b>|</b></p>
-                     <span class="codex">Last Updated: 2 days ago </span>
+                     <span class="codex">Last Updated: {{ Cmf::create_time_ago($data->created_at) }} </span>
                    </div>
                    <div class="mt-2">
                     <p class="detail-content">
-                    PHP is an open-source server-side scripting language that many devs use for web development. It is also a general-purpose language that you can use to make lots of projects, including Graphical User Interfaces (GUIs).
-                    PHP scripts can only be interpreted on a server that has PHP installed.
-                    The client computers accessing the PHP scripts require a web browser only. A PHP file contains PHP tags and ends with the extension “.php”.
+                      {!! $data->description !!}
                     </p>
                    </div>
                    <div class=" pt-2">
@@ -83,115 +80,190 @@
                      <span class="font-weight-bold benefit text-dark">Simple: </span>The PHP syntax is easily understood and learned, whether you’re building from scratch or leveraging existing frameworks or add-ons.
                     </p>
                     </div>
-                  <div class="chunk-file mt-3">
+                  <!-- <div class="chunk-file mt-3">
                    <h5 class="font-weight-bold mt-3">How to upload chunk files?</h5>
                    <p class="detail-content mt-2">
                     There are a few ways to deal with large file uploads in PHP. The easiest way is to increase the maximum upload size limit in the PHP configuration file (php.ini) on the server. If you don’t want to modify the server setting in PHP, the Chunk Upload method is one of the best alternatives for large file upload with PHP. In chunk upload, the large file is split into small parts and uploaded in chunks. You can upload large files above 500MB or GB to the server using PHP. This tutorial will show you how to handle large file upload with the chunking feature in PHP.<br>
                     Normally, the entire file is posted to the server-side for upload. But, if the file is huge (about several gigabytes) in size, the standard upload may fail due to settings in the server’s constraints on uploaded file size. To overcome this issue, we can integrate the chunk upload functionality. The chunk file upload method slices the file into chunks and sends them one by one to the server in PHP.<br>
                     We will use the Plupload library to split file into chunks on the client-side and post them to the server-side using JavaScript. Plupload is a JavaScript library that handles the chunk upload process on the client-side.
                   </p>
-                  </div>
-                  <div class="server-side mt-3">
-                  <h5 class="font-weight-bold mt-3">Server-side Upload Handler with PHP</h5>
-                  <div class=" scrollbar  pl-5 py-4 mt-2" id="style-2">
-                  <div class="force-overflow">
-                  <p class="font-weight-bold" >
-                     <span class="d-block">&lt;<span>!DOCTYPE html</span>&gt;</span>
-                     <span class="d-block">&lt;<span>html</span>&gt;</span>
-                     <span class="d-block pl-3">&lt;<span>head</span>&gt;</span>
-                     <span class="d-block pl-4"><span>&lt;<span>title</span>&gt;</span> Php Syntax <span>&lt;<span>title</span>&gt;</span></span>
-                     <span class="d-block pl-3">&lt;<span>head</span>&gt;</span>
-                     <span class="d-block pl-1">&lt;<span>body</span>&gt;</span>
-                     <span class="d-block pl-4 text-primary">&lt;<span>?</span>php</span>
-                     <span class="d-block pl-5 text-primary"> echo "Hi, I'm a PHP script!";</span>
-                     <span class="d-block pl-4 text-primary"><span>?</span>&gt;</span>
-                     <span class="d-block pl-1">&lt;<span>body</span>&gt;</span>
-                     <span class="d-block">&lt;<span>html</span>&gt;</span>
-                     <span class="d-block">&lt;<span>!DOCTYPE html</span>&gt;</span>
-                     <span class="d-block">&lt;<span>html</span>&gt;</span>
-                     <span class="d-block pl-3">&lt;<span>head</span>&gt;</span>
-                     <span class="d-block pl-4"><span>&lt;<span>title</span>&gt;</span> Php Syntax <span>&lt;<span>title</span>&gt;</span></span>
-                     <span class="d-block pl-3">&lt;<span>head</span>&gt;</span>
-                     <span class="d-block pl-1">&lt;<span>body</span>&gt;</span>
-                     <span class="d-block pl-4 text-primary">&lt;<span>?</span>php</span>
-                     <span class="d-block pl-5 text-primary"> echo "Hi, I'm a PHP script!";</span>
-                     <span class="d-block pl-4 text-primary"><span>?</span>&gt;</span>
-                     <span class="d-block pl-1">&lt;<span>body</span>&gt;</span>
-                     <span class="d-block">&lt;<span>html</span>&gt;</span>
-                    </p>
-                  </div>
-                  </div>
-                  </div>
+                  </div> -->
                    </div>
-                <div class="row">
-                 <div class="col-md-12 comments pt-4 "> 
-                   <h5 class=" font-weight-bold border-bottom pb-1">Comments</h5>
-                   <div class="users bg-white d-flex py-3 px-3  mt-3">
-                     <div class="mr-4">
-                     <img src="public/front/images/Abu-Bakar-Hafeez-Bhatti.jpg" class="rounded-circle ">
-                     </div>
-                     <div class="users-data  "> 
-                      <h6 class="d-inline user-name "> <a href="" class="">Axel Bouaziz</a></h6>
-                      <span class="codex font-weight-bold ml-2"> 08 December,2022 </span>
-                      <p class=" detail-content py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                      <a href="" class=" text-primary font-weight-bold replay"> Reply</a>
-                     </div>
-                   </div>
-                   <div class="users bg-white d-flex py-3 px-3  mt-3">
-                     <div class="mr-4">
-                     <img src="public/front/images/Abu-Bakar-Hafeez-Bhatti.jpg" class="rounded-circle ">
-                     </div>
-                     <div class="users-data  "> 
-                      <h6 class="d-inline user-name "> <a href="" class="">Axel Bouaziz</a></h6>
-                      <span class="codex font-weight-bold ml-2"> 08 December,2022 </span>
-                      <p class=" detail-content py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                      <a href="" class=" text-primary font-weight-bold replay"> Reply</a>
-                     </div>
-                   </div>
-                   <div class="users bg-white d-flex py-3 px-3  mt-3">
-                     <div class="mr-4">
-                     <img src="public/front/images/Abu-Bakar-Hafeez-Bhatti.jpg" class="rounded-circle ">
-                     </div>
-                     <div class="users-data  "> 
-                      <h6 class="d-inline user-name "> <a href="" class="">Axel Bouaziz</a></h6>
-                      <span class="codex font-weight-bold ml-2"> 08 December,2022 </span>
-                      <p class=" detail-content py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                      <a href="" class=" text-primary font-weight-bold replay"> Reply</a>
-                     </div>
-                   </div>
-                 </div>
-                </div>
-                <div class="leave-comment col-md-12 mt-5 px-0 ">
-                  <h5 class=" font-weight-bold border-bottom pb-1">Leave A Comment</h5>  
-                  <form action="" class="bg-white py-4">
-                  <div class="row">
-                 <div class="col-md-6">
-                   <div class="form-group">
-                    <label class="">Name</label>
-                    <input type="text" name="name" class="form-control rounded-0 w-100" required="required ">
-                   </div>
-                 </div>
-                 <div class="col-md-6">
-                   <div class="form-group">
-                     <label>Email</label>
-                     <input type="email" name="email" class="form-control rounded-0 w-100" required=" required">
-                   </div>
-                 </div>
-                 <div class="col-md-12">
-                   <div class="form-group">
-                     <label>Your Comment</label>
-                     <textarea name="comment" id="comment" required="required" class="form-control rounded-0" rows="8"></textarea>
-                   </div>
-                    <div class="text-center">
-                     <button type="submit" class="btn  px-5 text-uppercase font-weight-bold rounded-0">Send </button>
-                    </div>
-               </div>
-            </div>
-        </form>
-      </div>
                 </div>
              </div>
           </div>
+          <div class="server-side mt-3">
+                  <h5 class="font-weight-bold  border py-2 pl-2 bg-primary text-white">Upload Handler with HTML</h5>
+                  <div class=" scrollbar border" id="style-2">
+                  <div class="force-overflow">
+                  <div class="scroll">
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                  </div>
+                  </div>
+                  </div>
+                  </div> 
+             <div class="server-side mt-5">
+                  <h5 class="font-weight-bold  border py-2 pl-2 bg-primary text-white">Server-side Upload Handler with PHP</h5>
+                  <div class=" scrollbar border" id="style-2">
+                  <div class="force-overflow">
+                  <div class="scroll">
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                   <p class="count "></p>
+                  </div>
+                  </div>
+                  </div>
+                  </div>   
+          <h4 class="heading mt-4 font-weight-bold border-bottom">Comments</h4>
+          <div class="card border-0 bg-white mt-3 tutorials-card">
+          <div class="card-body">
+          <div class="d-flex flex-start align-items-center">
+             <img src="{{ url('public//front/images/author1.png') }}" class="rounded-circle ">
+              <div class="ml-2">
+                <h6 class="font-weight-bold">Lily Coleman</h6>
+                <p class="">
+                  Dec 09,2022
+                </p>
+              </div>
+            </div>
+            <p class="detail-content pl-1 my-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+            </p>
+            <div class="small d-flex justify-content-end">
+              <a href="#" class="d-flex align-items-center ml-4 font-weight-bold">
+                <i class="la la-share mr-1 "></i>
+                <p class="mb-0">Reply</p>
+              </a>
+            </div>
+          </div>   
+          </div>
+          <div class="card border-0 bg-white mt-3 tutorials-card">
+          <div class="card-body">
+          <div class="d-flex flex-start align-items-center">
+             <img src="{{ url('public//front/images/author1.png') }}" class="rounded-circle ">
+              <div class="ml-2">
+                <h6 class="font-weight-bold">Lily Coleman</h6>
+                <p class="">
+                  Dec 09,2022
+                </p>
+              </div>
+            </div>
+            <p class="detail-content pl-1 my-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+            </p>
+            <div class="small d-flex justify-content-end">
+              <a href="#" class="d-flex align-items-center ml-4 font-weight-bold">
+                <i class="la la-share mr-1 "></i>
+                <p class="mb-0">Reply</p>
+              </a>
+            </div>
+          </div>   
+          </div>
+          <div class="card border-0 bg-white mt-3 tutorials-card">
+          <div class="card-body">
+          <div class="d-flex flex-start align-items-center">
+             <img src="{{ url('public//front/images/author1.png') }}" class="rounded-circle ">
+              <div class="ml-2">
+                <h6 class="font-weight-bold">Lily Coleman</h6>
+                <p class="">
+                  Dec 09,2022
+                </p>
+              </div>
+            </div>
+            <p class="detail-content pl-1 my-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+            </p>
+            <div class="small d-flex justify-content-end">
+              <a href="#" class="d-flex align-items-center ml-4 font-weight-bold">
+                <i class="la la-share mr-1 "></i>
+                <p class="mb-0">Reply</p>
+              </a>
+            </div>
+          </div>   
+          </div>
+          <h4 class="heading mt-4 font-weight-bold border-bottom ">Leave a comment</h4>
+          <form class=" mt-4 py-2 post-comment ">
+          <div class="row">
+          <div class="col-md-6">
+          <div class="input-group mb-3">
+              <input type="text" class="form-control border rounded-0 bg-light" placeholder="Username" id="usr" name="username">
+            </div>
+          </div>
+          <div class="col-md-6">
+          <div class="input-group mb-3">
+              <input type="text" class="form-control border rounded-0 bg-light" placeholder="email" id="usr" name="email">
+            </div>
+          </div>   
+          <div class="col-md-12">
+           <div class="form-group">
+           <textarea class="form-control rounded-0 bg-light " id="exampleFormControlTextarea1" rows="10" placeholder="write your comment"></textarea>
+           </div>
+          </div>
+          </div>
+          <div class="text-center">
+          <button class="btn btn-primary rounded-0 font-weight-bold">Post your comment</button>
+          </div>
+          </form>
     	</div>
     		<div class="col-md-3 ">
                 @include('frontend.tutorials.sidebaroftutorialpages')
