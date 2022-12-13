@@ -12,7 +12,7 @@ use App\Http\Controllers\SignController;
 
 Route::get('/updateapp', function()
 {
-    \Artisan::call('dump-autoload');
+    Artisan::call('dump-autoload');
     echo 'dump-autoload complete';
 });
 Route::get('/clear', function() {

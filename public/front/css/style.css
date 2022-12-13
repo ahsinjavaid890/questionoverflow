@@ -6067,7 +6067,7 @@ div.upvotejs a.star.check.star-on {
 }
 /* /////////// detail page/////// */
 .down-src{
-    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px;
     padding: 25px 25px;
 }
 .benefit{
@@ -6110,12 +6110,9 @@ div.upvotejs a.star.check.star-on {
     box-shadow: none !important;
     border: 1px solid #2d86eb !important;
 }
-.comment-reply textarea:focus{
+#comment textarea:focus{
     box-shadow: none !important;
     border: 1px solid #2d86eb !important;
-}
-.user-reply{
-    display: none;
 }
 .scrollbar
 {  
@@ -6128,8 +6125,7 @@ div.upvotejs a.star.check.star-on {
 }
 #style-2::-webkit-scrollbar
 {
-	width: 7px;
-	
+	width: 7px;	
 }
 
 #style-2::-webkit-scrollbar-thumb
@@ -6137,9 +6133,9 @@ div.upvotejs a.star.check.star-on {
 	border-radius: 10px;
 	background-color: #2d86eb;
 }
+
 .scroll {
 	counter-reset: index;
-    
 }
 .scroll p::before {
 		font-weight: 700;

@@ -12,6 +12,8 @@
 <meta property="og:url" content="{{ Request::url() }}">
 <meta property="og:locale" content="it_IT">
 <link rel="canonical" href="{{ Request::url() }}/" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="jquery-3.5.1.min.js"></script>
 @endsection
 @section('content')
 <section class="hero-area pattern-bg-2 bg-white shadow-sm overflow-hidden pt-50px pb-50px">
@@ -188,12 +190,12 @@
               quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
             </p>
             <div class="small d-flex justify-content-end">
-              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply">
+              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply-1">
                 <i class="la la-share mr-1 "></i>
                 <p class="mb-0">Reply</p>
               </a>
             </div>
-            <div class="user-reply mt-2" id="comment">
+            <div class="user-reply1 mt-2" id="comment">
               <div class="form-group">
                <textarea class="form-control rounded-0 bg-light  " rows="5" placeholder="write your comment"></textarea>
               </div>
@@ -220,12 +222,12 @@
               quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
             </p>
             <div class="small d-flex justify-content-end">
-              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply">
+              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply-2">
                 <i class="la la-share mr-1 "></i>
                 <p class="mb-0">Reply</p>
               </a>
             </div>
-            <div class="user-reply mt-2" id="comment">
+            <div class="user-reply2 mt-2" id="comment">
               <div class="form-group">
                <textarea class="form-control rounded-0 bg-light  " rows="5" placeholder="write your comment"></textarea>
               </div>
@@ -252,12 +254,12 @@
               quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
             </p>
             <div class="small d-flex justify-content-end">
-              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply">
+              <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply-3">
                 <i class="la la-share mr-1 "></i>
                 <p class="mb-0">Reply</p>
               </a>
             </div>
-            <div class="user-reply mt-2" id="comment">
+            <div class="user-reply3 mt-2" id="comment">
               <div class="form-group">
                <textarea class="form-control rounded-0 bg-light  " rows="5" placeholder="write your comment"></textarea>
               </div>
@@ -288,10 +290,30 @@
 </div>
 </section>
 <script>
-$(document).ready(function(){
-  $('#reply-btn').click(function(){
-    $('.user-reply').toggle();
-  });
-});
+  $(document).ready(function(){
+    $(".user-reply1").hide(function(){
+      $(".reply-1").click(function(){
+        $(".user-reply1").fadeToggle() ;
+      });
+     
+    })
+  })
+   $(document).ready(function(){
+    $(".user-reply2").hide(function(){
+      $(".reply-2").click(function(){
+        $(".user-reply2").fadeToggle() ;
+      });
+     
+    })
+  })
+   $(document).ready(function(){
+    $(".user-reply3").hide(function(){
+      $(".reply-3").click(function(){
+        $(".user-reply3").fadeToggle() ;
+      });
+     
+    })
+  })
 </script>
+
 @endsection
