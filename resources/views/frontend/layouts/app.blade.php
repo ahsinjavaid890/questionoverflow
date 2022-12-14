@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ url('public/front/css/jquery-te-1.4.0.css') }}">
     <link rel="stylesheet" href="{{ url('public/front/css/upvotejs.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/front/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('public/front/css/jquery.fancybox.min.css') }}">
     <!-- end inject -->
 </head>
     <body>
@@ -45,8 +46,8 @@
         <script src="{{ url('public/front/js/owl.carousel.min.js') }}"></script>
         <script src="{{ url('public/front/js/selectize.min.js') }}"></script>
         <script src="{{ url('public/front/js/main.js') }}"></script>
-
-
+        <script src="{{ url('public/front/js/jquery.fancybox.min.js') }}"></script>
+        <script src="{{ url('public/front/js/jquery.lazy.min.js') }}"></script>
         <script src="{{ url('public/front/js/jquery-te-1.4.0.min.js') }}"></script>
         <script src="{{ url('public/front/js/upvote.vanilla.js') }}"></script>
         <script src="{{ url('public/front/js/upvote-script.js') }}"></script>

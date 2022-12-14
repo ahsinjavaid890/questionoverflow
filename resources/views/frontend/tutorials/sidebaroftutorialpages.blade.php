@@ -33,14 +33,9 @@
     <div class="col-md-12    px-0">
         <h5 class="trends text-white p-2  text-uppercase ">Our Trending Tutorials</h5>
         <ul class="py-4 px-3 trending bg-light">
-            <li class="border-bottom py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, blanditiis!</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#" >Lorem ipsum dolor sit amet.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit, amet consectetur adipisicing.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet consectetur.</a></li>
-            <li class="border-bottom mt-1 pb-1 py-2"><a href="#">Lorem ipsum dolor sit amet.</a></li>
+            @foreach(DB::table('tutorials')->orderby('created_at' , 'asc')->limit(10)->get() as $t)
+            <li class="border-bottom py-2"><a href="{{ url('tutorials') }}/{{ DB::table('tutorialcategories')->where('id' , $t->category_id)->first()->url }}/{{ $t->url }}">{{ $t->name }}</a></li>
+            @endforeach
         </ul>
     </div>
 </div>

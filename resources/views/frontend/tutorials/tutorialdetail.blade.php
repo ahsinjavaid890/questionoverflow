@@ -1,12 +1,12 @@
 @extends('frontend.layouts.app')
 @section('title')
-<title>{{ $data->metta_tittle }}</title>
-<meta name="DC.Title" content="{{ $data->metta_tittle }}">
+<title>@if($data->metta_tittle){{ $data->metta_tittle }} @else {{ $data->name }} @endif</title>
+<meta name="DC.Title" content="@if($data->metta_tittle){{ $data->metta_tittle }} @else {{ $data->name }} @endif">
 <meta name="rating" content="general">
 <meta name="description" content="{{ $data->metta_description }}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{ url('public/images') }}/{{ $data->image }}">
-<meta property="og:title" content="All Tutorials">
+<meta property="og:title" content="@if($data->metta_tittle){{ $data->metta_tittle }} @else {{ $data->name }} @endif">
 <meta property="og:description" content="{{ $data->metta_description }}">
 <meta property="og:site_name" content="Question Overflow">
 <meta property="og:url" content="{{ Request::url() }}">
@@ -109,7 +109,9 @@
                     </button>
             </div>
             <div id="comments" class="tutorialcoments">
+               @if(DB::table('tutorial_comments')->where('tutorial_id' , $data->id)->orderby('created_at' , 'desc')->count() > 0)
                <h4 class="heading mt-4 font-weight-bold border-bottom">Comments</h4>
+               @endif
                @foreach(DB::table('tutorial_comments')->where('tutorial_id' , $data->id)->orderby('created_at' , 'desc')->get() as $r)
                @php
                   $user = DB::table('users')->where('id' , $r->user_id)->first();
@@ -152,7 +154,9 @@
                   </div>
                </div>
                @endforeach
+               
                <h4 class="heading mt-4 font-weight-bold border-bottom ">Leave a comment</h4>
+               
                <form method="POST" action="{{ url('tutorials/addcomment') }}" class=" mt-3 py-2 post-comment ">
                   @csrf
                   <input type="hidden" value="{{$data->id}}" name="tutorial_id">
@@ -184,6 +188,21 @@
             </div>
          </div>
          <div class="col-md-3">
+            @if($data->youtubelink)
+            <div class="row pr-3 sidebar-tutorial">
+               <div class="col-md-12 mb-4 px-0  ">
+                 <div class="video-box">
+                     <img class="w-100 rounded-rounded lazy" src="{{ url('public/images') }}/{{ $data->image }}" data-src="{{ url('public/images') }}/{{ $data->image }}" alt="video image">
+                     <div class="video-content text-center">
+                         <a class="icon-element icon-element-lg hover-y mx-auto" href="https://www.youtube.com/watch?v=GlrxcuEDyF8" data-fancybox="" title="Play Video">
+                             <i class="la la-youtube mr-1"></i>
+                         </a>
+                         <p class="mt-2 badge badge-light">Watch Tutorial Video For {{ $data->name }}</p>
+                     </div>
+                 </div>
+               </div>
+            </div>
+            @endif
             @include('frontend.tutorials.sidebaroftutorialpages')
          </div>
       </div>
