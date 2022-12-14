@@ -28,7 +28,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <table id="basic-datatable" class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th class="w-30">Image / Icon</th>
@@ -36,6 +36,7 @@
                                 <th>Status</th>
                                 <th>Dated</th>
                                 <th>Order</th>
+                                <th>All Sections</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -49,15 +50,19 @@
                                 <td>{{ $r->status }}</td>
                                 <td>{{ date('d M Y, h:s a ', strtotime($r->created_at)) }}</td>
                                 <td>{{ $r->order }}</td>
+                                <td>
+                                    <a href="{{ url('admin/tutorials/addsection') }}/{{ $r->id }}" class="btn btn-primary">Add Section</a>
+                                </td>
                                 <td class="table-action text-center">
                                     <a href="{{url('admin/tutorials/edittutorial')}}/{{ $r->id }}" class="action-icon" title="Edit Tutorial"> <i class="mdi mdi-pencil"></i></a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
-                        
                     </table>
-
+                    <div id="pagination" style="margin-top: 50px;">
+                        {!! $data->links('admin.pagination') !!}
+                    </div>
                 </div> <!-- end card body-->
             </div> <!-- end card -->
         </div><!-- end col-->

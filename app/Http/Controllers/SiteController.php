@@ -20,7 +20,6 @@ use App\Models\categories;
 use App\Models\answerquestions;
 use App\Models\questioncoments;
 use App\Models\tutorials;
-
 use App\Exports\QuestionExports;
 use App\Models\userfile;
 use Illuminate\Support\Str;
@@ -52,6 +51,14 @@ class SiteController extends Controller
         $questions = answerquestions::where('delete_status' , 'Active')->where('visible_status'  ,'Published')->limit(20)->orderby('id' , 'desc')->get();
         $categories = categories::where('status' , 'Active')->limit(15)->get();
         return view('frontend.homepage.index')->with(array('categories'=>$categories,'questions'=>$questions));
+    }
+    public function termsandconditions()
+    {
+        return view('frontend.pages.termsandconditions');
+    }
+    public function contact()
+    {
+        return view('frontend.pages.contact');
     }
     public function alltutorials()
     {
@@ -260,11 +267,6 @@ class SiteController extends Controller
    public function checkslug($id)
    {
       echo Cmf::checkurl($id);
-   }
-
-   public function contact()
-   {
-    return view('frontend.contact');
    }
    public function pricing()
    {

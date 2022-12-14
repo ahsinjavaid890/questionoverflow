@@ -51,6 +51,9 @@ Route::get('/', [SiteController::class, 'index'])->name('home');
 Route::get('allsubjects', [SiteController::class, 'allsubjects']);
 Route::get('question/{id}', [SiteController::class, 'singlequestion']);
 Route::POST('createquestioncoment', [SiteController::class, 'createquestioncoment']);
+Route::get('terms-and-conditions', [SiteController::class, 'termsandconditions']);
+Route::get('contact', [SiteController::class, 'contact']);
+Route::get('privacy-policy', [SiteController::class, 'privacypolicy']);
 
 
 
@@ -420,4 +423,7 @@ Route::name('admin.tutorials.')->prefix('admin/tutorials')->group(function(){
     Route::get('deletetutorial/{id}', [AdminController::class, 'deletetutorial']);
     Route::get('edittutorial/{id}', [AdminController::class, 'edittutorial']);
     Route::POST('updatetutorial',[AdminController::class, 'updatetutorial']);
+    Route::get('addsection/{id}', [AdminController::class, 'addsection']);
+    Route::POST('addnewsectionoftutorial',[AdminController::class, 'addnewsectionoftutorial']);
+    
 });

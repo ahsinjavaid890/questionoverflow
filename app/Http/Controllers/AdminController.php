@@ -18,9 +18,7 @@ use App\Models\Abusivewords;
 use App\Models\dynamicpages;
 use App\Models\Uploadedquestions;
 use App\Models\advertisementrequests;
-use App\Imports\BulkImport;
-use App\Imports\Abusivewordsimport;
-use App\Imports\Usersimport;
+use App\Models\tutorial_sections;
 use App\Models\expertrequest;
 use App\Models\answerquestions;
 use App\Models\alltemplatecategories;
@@ -2443,7 +2441,27 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'Category Successfully Inserted');  
     }
     
-    
+    public function addsection($id)
+    {
+        $tutorial = tutorials::find($id);
+        $data = tutorial_sections::where('tutorial_id' , $id)->orderby('id' , 'ASC')->get();
+        return view('admin.tutorials.tutorialsections')->with(array('data'=>$data,'tutorial'=>$tutorial));
+    }
+    public function addnewsectionoftutorial(Request $request)
+    {
+        $insert = new tutorial_sections();
+        $insert->tutorial_id = $request->tutorial_id;
+        $insert->heading = $request->heading;
+        $insert->description = $request->description;
+        $insert->content = $request->content;
+        $insert->order = $request->order;
+        if($request->image)
+        {
+            $insert->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $insert->save();
+        return redirect()->back()->with('message', 'Section Successfully Inserted');   
+    }
     public function addnewtutorial()
     {
         $category = tutorialcategories::all();
@@ -2451,7 +2469,7 @@ class AdminController extends Controller
     }
     public function alltutorials()
     {
-        $data = tutorials::all();
+        $data = tutorials::orderby('created_at' , 'desc')->paginate(10);
         return view('admin.tutorials.alltutorials')->with(array('data'=>$data));
     }
     public function edittutorial($id)
@@ -2478,8 +2496,23 @@ class AdminController extends Controller
         $add->save();
         return redirect()->back()->with('message', 'Tutorial Successfully Inserted');   
     }
+    public function replace($find, $replaceword, $string) {
+       return str_replace($find,$replaceword,$string);
+    }
     public function updatetutorial(Request $request)
     {
+        $description = $request->description;
+        $description =  $this->replace('<?php' , '<span class="phpstartingtaag"><?php</span>' , $description);
+
+     
+
+        
+
+        // if (str_contains($description, '<?php')) { 
+        //     echo $this->insert($oldstring, "<?php", "<span class='phpstartingtaag'><?php</span>");
+        //     exit;
+        // }
+       
         $add = tutorials::find($request->id);
         $add->user_id = Auth::user()->id;
         $add->category_id = $request->category_id;
@@ -2489,7 +2522,7 @@ class AdminController extends Controller
         {
             $add->image = Cmf::sendimagetodirectory($request->image);
         }
-        $add->description = $request->description;
+        $add->description = $description;
         $add->metta_tittle = $request->metta_tittle;
         $add->metta_description = $request->metta_description;
         $add->metta_keywords = $request->metta_keywords;            
