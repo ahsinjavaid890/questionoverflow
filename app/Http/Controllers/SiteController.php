@@ -14,7 +14,7 @@ use App\Models\testimonials;
 use App\Models\Abusivewords;
 use App\Models\dynamicpages;
 use App\Models\newsletters;
-use App\Models\advertisementrequests;
+use App\Models\tutorial_comments;
 use App\Models\dailyvisitors;
 use App\Models\categories;
 use App\Models\answerquestions;
@@ -51,6 +51,15 @@ class SiteController extends Controller
         $questions = answerquestions::where('delete_status' , 'Active')->where('visible_status'  ,'Published')->limit(20)->orderby('id' , 'desc')->get();
         $categories = categories::where('status' , 'Active')->limit(15)->get();
         return view('frontend.homepage.index')->with(array('categories'=>$categories,'questions'=>$questions));
+    }
+    public function addcomment(Request $request)
+    {
+        $insert = new tutorial_comments();
+        $insert->tutorial_id = $request->tutorial_id;
+        $insert->comment = $request->comment;
+        $insert->user_id = Auth::user()->id;
+        $insert->save();
+        return redirect()->back()->with('message', 'Comment Added Successfully');
     }
     public function termsandconditions()
     {

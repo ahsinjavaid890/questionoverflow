@@ -17,7 +17,7 @@
                </div>
                <div class="d-flex justify-content-between mt-2 ">
                   <div class="pt-2">
-                    <a href="#" class="link font-weight-bold">0 comments</a>
+                    <a href="{{ url('tutorials') }}/{{$r->categoryurl}}/{{ $r->tutorialurl }}#comments" class="link font-weight-bold">{{ DB::table('tutorial_comments')->where('tutorial_id' , $r->id)->count() }} comments</a>
                   </div>
                   <div class="">
                    <a href="{{ url('tutorials') }}/{{$r->categoryurl}}/{{ $r->tutorialurl }}" class="btn theme-btn theme-btn-outline mr-2">Read Full <i class="la la-arrow-right ml-1"></i></a>

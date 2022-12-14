@@ -103,7 +103,7 @@
                                             @if(Auth::user()->profileimage)
                                             <img src="{{ url('public/images') }}/{{ Auth::user()->profileimage }}" alt="{{ Auth::user()->name }}" class="rounded-full">
                                             @else
-                                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Avatar | Question Overflow">
+                                            <img src="{{ url('public/images/profile-placeholder-question-overflow.png') }}" alt="Profile Avatar | Question Overflow">
                                             @endif
                                         </div>
                                         <div class="media-body p-0 border-left-0">

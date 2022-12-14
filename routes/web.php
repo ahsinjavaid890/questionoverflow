@@ -41,6 +41,7 @@ Route::get('/templates/{id}/{template}', [TemplatesController::class, 'templated
 Route::get('tutorials', [SiteController::class, 'alltutorials']);
 Route::get('tutorials/{id}', [SiteController::class, 'tutorialsbycategory']);
 Route::get('tutorials/{id}/{two}', [SiteController::class, 'tutorialsdetails']);
+Route::POST('/tutorials/addcomment', [SiteController::class, 'addcomment']);
 
 
 

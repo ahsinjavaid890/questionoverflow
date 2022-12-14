@@ -108,24 +108,32 @@
                         <span style="padding-left: 44px;" class="flex-grow-1">Share On Instagram</span>
                     </button>
             </div>
-            <div class="tutorialcoments">
+            <div id="comments" class="tutorialcoments">
                <h4 class="heading mt-4 font-weight-bold border-bottom">Comments</h4>
+               @foreach(DB::table('tutorial_comments')->where('tutorial_id' , $data->id)->orderby('created_at' , 'desc')->get() as $r)
+               @php
+                  $user = DB::table('users')->where('id' , $r->user_id)->first();
+               @endphp
                <div class="card border-0 bg-white mt-3 tutorials-card">
                   <div class="card-body">
                      <div class="d-flex flex-start align-items-center">
-                        <img src="{{ url('public//front/images/author1.png') }}" class="rounded-circle ">
+                        @if($user->profileimage)
+                        <img src="{{ url('public/images') }}/{{ $user->profileimage }}" alt="{{ $user->name }}" class="rounded-circle ">
+                        @else
+                        <img width="40" src="{{ url('public/images/profile-placeholder-question-overflow.png') }}" alt="Question Overflow" class="rounded-circle ">
+                        
+                        @endif
                         <div class="ml-2">
-                           <h6 class="font-weight-bold">Lily Coleman</h6>
+                           <h6 class="font-weight-bold">{{ $user->name }}</h6>
                            <p class="">
-                              Dec 09,2022
+                              {{ Cmf::create_time_ago($r->created_at) }}
                            </p>
                         </div>
                      </div>
                      <p class="detail-content pl-1 my-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                        {{ $r->comment }}
                      </p>
+                     @if(Auth::check())
                      <div class="small d-flex justify-content-end">
                         <a href="javascript:void(0)" id="reply-btn" class="d-flex align-items-center ml-4 font-weight-bold reply-1">
                            <i class="la la-share mr-1 "></i>
@@ -140,19 +148,37 @@
                            <a href="#" class="btn theme-btn theme-btn-outline">Submit</a>
                         </div>
                      </div>
+                     @endif
                   </div>
                </div>
+               @endforeach
                <h4 class="heading mt-4 font-weight-bold border-bottom ">Leave a comment</h4>
-               <form class=" mt-3 py-2 post-comment ">
+               <form method="POST" action="{{ url('tutorials/addcomment') }}" class=" mt-3 py-2 post-comment ">
+                  @csrf
+                  <input type="hidden" value="{{$data->id}}" name="tutorial_id">
+                  @if(Auth::check())
                   <div class="row">
                      <div class="col-md-12">
                         <div class="form-group">
-                           <textarea class="form-control rounded-0 bg-light " id="exampleFormControlTextarea1" rows="8" placeholder="write your comment"></textarea>
+                           <textarea name="comment" required class="form-control rounded-0 bg-light " id="exampleFormControlTextarea1" rows="8" placeholder="Write your comment"></textarea>
                         </div>
                      </div>
                   </div>
+                  @else
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <textarea style="color:red;" readonly class="form-control rounded-0 bg-light " id="exampleFormControlTextarea1" rows="8" placeholder="write your comment">Please Login For Comment</textarea>
+                        </div>
+                     </div>
+                  </div>
+                  @endif
                   <div class="text-center mt-1">
-                     <a href="javascript::void(0)" class="btn theme-btn theme-btn-outline ">Post your comment</a>
+                     @if(Auth::check())
+                     <button class="btn theme-btn theme-btn-outline"><i class="la la-sign-in mr-1"></i> Post your comment</button>
+                     @else
+                     <a href="javascript:void(0)" class="btn theme-btn theme-btn-outline mr-2" data-toggle="modal" data-target="#loginModal"><i class="la la-sign-in mr-1"></i> Post your comment</a>
+                     @endif
                   </div>
                </form>
             </div>

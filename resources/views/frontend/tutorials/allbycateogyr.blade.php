@@ -30,8 +30,8 @@
         </div><!-- end hero-content -->
     </div><!-- end container -->
 </section>
-<div class="container">
-<div class="row   tutorials ">
+<div class="container-fluid">
+<div class="row tutorials py-5 ">
   <div class="col-md-9  ">
       <div class="row">
         @foreach($data as $r)
@@ -43,9 +43,9 @@
       </div>
   </div>
     <!-- //// col 3 //// -->
-    <div class="col-md-3">
-        @include('frontend.tutorials.sidebaroftutorialpages')
-    </div>
+    <div class="col-md-3 pt-3">
+    @include('frontend.tutorials.sidebaroftutorialpages')
+  </div>
 </div>
 </div>
 @endsection
