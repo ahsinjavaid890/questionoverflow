@@ -2440,7 +2440,11 @@ class AdminController extends Controller
         $category->save();
         return redirect()->back()->with('message', 'Category Successfully Inserted');  
     }
-    
+    public function editsection($id)
+    {
+        $data = tutorial_sections::find($id);
+        return view('admin.tutorials.editsection')->with(array('data'=>$data));
+    }
     public function addsection($id)
     {
         $tutorial = tutorials::find($id);
@@ -2461,6 +2465,35 @@ class AdminController extends Controller
         }
         $insert->save();
         return redirect()->back()->with('message', 'Section Successfully Inserted');   
+    }
+    public function createsection($id)
+    {
+        $data = tutorials::find($id);
+        return view('admin.tutorials.tutorialaddsection')->with(array('data'=>$data));
+    }
+    public function deletesection($id)
+    {
+        tutorial_sections::where('id',$id)->delete();
+        return redirect()->back()->with('message', 'Section Deleted Successfully');  
+    }
+    public function updatetutorialsection(Request $request)
+    {
+        $insert = tutorial_sections::find($request->id);
+        $insert->heading = $request->heading;
+        $insert->description = $request->description;
+        $insert->content = $request->content;
+        $insert->order = $request->order;
+        $insert->content_heading = $request->content_heading;
+        if($request->image)
+        {
+            $insert->image = Cmf::sendimagetodirectory($request->image);
+        }
+        if($request->content_file)
+        {
+            $insert->content_file = Cmf::sendimagetodirectory($request->content_file);
+        }
+        $insert->save();
+        return redirect()->back()->with('message', 'Section Successfully Inserted');  
     }
     public function addnewtutorial()
     {

@@ -13,9 +13,13 @@
 <meta property="og:locale" content="it_IT">
 <link rel="canonical" href="{{ Request::url() }}/" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="jquery-3.5.1.min.js"></script>
 @endsection
 @section('content')
+<style type="text/css">
+  .why-use ul{
+    margin-left: 20px;
+  }
+</style>
 <section class="hero-area pattern-bg-2 bg-white shadow-sm overflow-hidden pt-50px pb-50px">
    <div class="container-fluid">
       <div class="row">
@@ -57,13 +61,25 @@
                </div>
                @endif
                @if($r->content)
-               <h5 class="font-weight-bold py-2 pl-2 bg-primary text-white">Upload Handler with HTML</h5>
-               <div class="scrollbar" id="style-2">
-                  <div class="force-overflow">
-                     <div class="scroll">
-                        {!! $r->content !!}
+               <div class="contentheading">
+                  <div class="row">
+                     <div class="col-md-6">
+                        @if($r->content_heading)
+                           <h5 class="text-white">{{ $r->content_heading  }}</h5>
+                        @endif
+                     </div>
+                     <div class="col-md-6 text-right text-white">
+                          <a class="text-white btn btn-sm btn-primary" href="javascript:void(0)"><i class="la la-clipboard-check"></i> Coppy </a>
+                          @if($r->content_file)
+                          <a class="text-white btn btn-sm btn-primary" href="javascript:void(0)"><i class="la la-download"></i> Download </a>
+                          @endif
+                          <a onclick="fullviewbutton({{$r->id}})" id="fullviewbutton{{$r->id}}" class="text-white btn btn-sm btn-primary" href="javascript:void(0)"><i class="la la-street-view"></i> Full View </a>
                      </div>
                   </div>
+                  
+               </div>
+               <div class="contentcode">
+                  {!! $r->content !!}
                </div>
                @endif
             </div>

@@ -425,5 +425,8 @@ Route::name('admin.tutorials.')->prefix('admin/tutorials')->group(function(){
     Route::POST('updatetutorial',[AdminController::class, 'updatetutorial']);
     Route::get('addsection/{id}', [AdminController::class, 'addsection']);
     Route::POST('addnewsectionoftutorial',[AdminController::class, 'addnewsectionoftutorial']);
-    
+    Route::get('editsection/{id}', [AdminController::class, 'editsection']);
+    Route::POST('updatetutorialsection',[AdminController::class, 'updatetutorialsection']);
+    Route::get('deletesection/{id}', [AdminController::class, 'deletesection']);
+    Route::get('createsection/{id}', [AdminController::class, 'createsection']);
 });

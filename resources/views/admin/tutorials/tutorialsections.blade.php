@@ -29,7 +29,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a data-toggle="modal" data-target="#myModal" href="javascript:void(0)" class="btn btn-primary">Add Section</a>
+                    <a href="{{ url('admin/tutorials/createsection') }}/{{ $tutorial->id }}" class="btn btn-primary">Add Section</a>
                     <!-- The Modal -->
                     <div class="modal fade" id="myModal">
                       <div class="modal-dialog modal-lg">
@@ -108,6 +108,7 @@
                                 <td>{{ Cmf::create_time_ago($r->updated_at) }}</td>
                                 <td class="table-action text-center">
                                     <a href="{{url('admin/tutorials/editsection')}}/{{ $r->id }}" class="action-icon" title="Edit Tutorial"> <i class="mdi mdi-pencil"></i></a>
+                                    <a onclick="return confirm('Are You Sure You want to Delete This')" href="{{url('admin/tutorials/deletesection')}}/{{ $r->id }}" class="action-icon" title="Edit Tutorial"> <i class="mdi mdi-delete"></i></a>
                                 </td>
                             </tr>
                             @endforeach
