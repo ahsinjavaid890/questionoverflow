@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <p class="fs-15 lh-20 pb-3">
-                    Enter your username or email to reset your password. You will receive an email with instructions on how to reset your password. If you are experiencing problems resetting your password <a href="contact.html" class="text-color hover-underline">contact us</a>                        or <a href="#" class="text-color hover-underline">send us an email</a>
+                    Enter your username or email to reset your password. You will receive an email with instructions on how to reset your password. If you are experiencing problems resetting your password <a href="{{ url('contact') }}" class="text-color hover-underline">contact us</a>                        or <a href = "mailto:support@questionoverflow.com" class="text-color hover-underline">send us an email</a>
                 </p>
                 <form method="post">
                     <div class="form-group">
