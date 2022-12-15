@@ -33,6 +33,7 @@
                             <tr>
                                 <th class="w-30">Image / Icon</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Status</th>
                                 <th>Dated</th>
                                 <th>Order</th>
@@ -43,10 +44,11 @@
                         <tbody>
                             @foreach($data as $r)
                             <tr>
-                                <td class="w-30">
-                                    <img src="{{ url('public/images') }}/{{ $r->image }}" width="30xp" alt="table-user" class="mr-2 img thumbnail" />
+                                <td class="w-20">
+                                    <img src="{{ url('public/images') }}/{{ $r->image }}" width="100" alt="table-user" class="mr-2 img thumbnail" />
                                 </td>
                                 <td>{{ $r->name }}</td>
+                                <td>{{ DB::table('tutorialcategories')->where('id' , $r->category_id)->first()->name }}</td>
                                 <td>{{ $r->status }}</td>
                                 <td>{{ date('d M Y, h:s a ', strtotime($r->created_at)) }}</td>
                                 <td>{{ $r->order }}</td>
@@ -54,6 +56,7 @@
                                     <a href="{{ url('admin/tutorials/addsection') }}/{{ $r->id }}" class="btn btn-primary">Add Section</a>
                                 </td>
                                 <td class="table-action text-center">
+                                    <a target="_blank" href="{{url('tutorials')}}/{{DB::table('tutorialcategories')->where('id' , $r->category_id)->first()->url}}/{{ $r->url }}" class="action-icon" title="Edit Tutorial"> <i class="mdi mdi-eye"></i></a>
                                     <a href="{{url('admin/tutorials/edittutorial')}}/{{ $r->id }}" class="action-icon" title="Edit Tutorial"> <i class="mdi mdi-pencil"></i></a>
                                 </td>
                             </tr>
