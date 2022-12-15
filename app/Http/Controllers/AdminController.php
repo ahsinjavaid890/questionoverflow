@@ -2459,9 +2459,14 @@ class AdminController extends Controller
         $insert->description = $request->description;
         $insert->content = $request->content;
         $insert->order = $request->order;
+        $insert->content_heading = $request->content_heading;
         if($request->image)
         {
             $insert->image = Cmf::sendimagetodirectory($request->image);
+        }
+        if($request->content_file)
+        {
+            $insert->content_file = Cmf::sendimagetodirectory($request->content_file);
         }
         $insert->save();
         return redirect()->back()->with('message', 'Section Successfully Inserted');   
