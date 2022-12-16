@@ -6175,10 +6175,7 @@ div.upvotejs a.star.check.star-on {
 .scroll p:nth-of-type(odd){
     background: #f2f3f4;
 }	
-.main{
-    overflow: none;
-    max-height: 100%;
-}
+
 @media only screen and (min-width:768px) and (max-width:991px) {
     .hero-btn-box.text-right {
         text-align: left !important

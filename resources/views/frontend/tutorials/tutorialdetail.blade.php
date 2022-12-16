@@ -12,7 +12,11 @@
 <meta property="og:url" content="{{ Request::url() }}">
 <meta property="og:locale" content="it_IT">
 <link rel="canonical" href="{{ Request::url() }}/" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 @endsection
 @section('content')
 <style type="text/css">
@@ -225,16 +229,20 @@ function copycodes(id) {
   document.body.append(textArea);
   textArea.select();
   document.execCommand("copy");
+  textArea.remove();
+/// sweet alert ///
+  swal.fire({
+                title: "Successfully code copied!",
+                icon: "success",
+                confirmButtonColor: '#19bb9b',
+            });
 }
-
-
-
   /// full view ///
   function fullviewbutton(id) {
    const div = document.getElementById('contentcode' + id);
    div.classList.toggle('remove_overflow');
   }
-
+  /// reply ///
    $(document).ready(function() {
       $(".user-reply1").hide(function() {
          $(".reply-1").click(function() {
