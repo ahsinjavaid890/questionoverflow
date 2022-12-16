@@ -6433,6 +6433,12 @@ div.upvotejs a.star.check.star-on {
         text-align: center !important;
         padding-top: 10px
     }
+   .downloadbuttons{
+    flex-direction: column-reverse !important;
+   }
+   .downloadbuttons button{
+    margin-bottom: 10px !important;
+   }
 }
 
 .copyright-desc a {
@@ -6491,7 +6497,8 @@ div.upvotejs a.star.check.star-on {
 }
 .contentcode::-webkit-scrollbar
 {
-    width: 7px; 
+    width: 8px; 
+    height: 8px;
 }
 
 .contentcode::-webkit-scrollbar-thumb

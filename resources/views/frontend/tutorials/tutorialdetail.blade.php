@@ -70,14 +70,14 @@
                   @endif
                   @if($r->content)
                   <div class="contentheading">
-                     <div class="row">
-                        <div class="col-md-6">
+                     <div class="d-flex justify-content-between">
+                        <div class="">
                            @if($r->content_heading)
                            <h5 class="text-white">{{ $r->content_heading  }}</h5>
                            @endif
                         </div>
-                        <div class="col-md-6 text-right text-white">
-                           <a onclick="copycodes({{$r->id}})" id="copycodes{{$r->id}}" class="text-white btn btn-sm btn-primary"href="javascript:void(0)"><i class="la la-clipboard-check"></i> Coppy </a>
+                        <div class="text-right text-white">
+                           <a onclick="copycodes({{$r->id}})" id="copycodes{{$r->id}}" class="text-white btn btn-sm btn-primary"href="javascript:void(0)"><i class="la la-clipboard-check"></i> Copy </a>
                            @if($r->content_file)
                            <a class="text-white btn btn-sm btn-primary" href="javascript:void(0)"><i class="la la-download"></i> Download </a>
                            @endif
@@ -100,7 +100,7 @@
                @if($data->dounloadlink)
                <a class="btn theme-btn theme-btn-outline mr-2 p-2" href=""><i class="la la-download"></i> Download Source Code</a>
                @endif
-               <a class="btn theme-btn theme-btn-outline mr-2 p-2" href="{{ url('needhelp') }}/{{ $data->url }}">Need Help ?</a>
+               <a class="btn theme-btn theme-btn-outline mr-2 p-2 need-help" href="{{ url('needhelp') }}/{{ $data->url }}">Need Help ?</a>
 
                <button class="btn facebook-btn theme-btn mr-2 p-2" type="button">
                   <span class="btn-icon"><svg focusable="false" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
