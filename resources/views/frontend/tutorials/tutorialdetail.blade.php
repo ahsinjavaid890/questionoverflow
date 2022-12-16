@@ -230,12 +230,26 @@ function copycodes(id) {
   textArea.select();
   document.execCommand("copy");
   textArea.remove();
-/// sweet alert ///
-  swal.fire({
-                title: "Successfully code copied!",
-                icon: "success",
-                confirmButtonColor: '#19bb9b',
-            });
+
+
+  var toastMixin = Swal.mixin({
+    toast: true,
+    icon: 'success',
+    animation: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: false,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+  toastMixin.fire({
+    animation: true,
+    title: 'Successfully code copied'
+  });
+
 }
   /// full view ///
   function fullviewbutton(id) {
