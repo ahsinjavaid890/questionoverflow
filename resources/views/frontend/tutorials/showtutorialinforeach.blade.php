@@ -1,12 +1,12 @@
 <div class="col-md-12 ">
   <div class="card bg-white border-0 tutorials-card mt-3">
-      <div class="card-body pl-2 pt-3 ">
+      <div class="card-body p-0">
         <div class="row">
             <div class="col-md-5 pr-0">
-            <img src="{{ url('public/images') }}/{{ $r->image }}" class="w-100 ">
+            <img src="{{ url('public/images') }}/{{ $r->image }}" class="w-100">
             </div>
-            <div class="col-md-7 ">
-              <h5 class="heading  ">
+            <div class="col-md-7 pt-2 pl-4 pr-4">
+              <h5 class="heading">
                 <a href="{{ url('tutorials') }}/{{$r->categoryurl}}/{{ $r->tutorialurl }}" class="text-dark font-weight-bold">{{ $r->name }}
                 </a>
                </h5>
